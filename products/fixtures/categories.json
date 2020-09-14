@@ -1,0 +1,16 @@
+[
+	{"privatekey": 1, "model": "products.category", "fields": {"name": "motorcycles", "friendly_name": "Motorcycles"}}, 
+	{"privatekey": 2, "model": "products.category", "fields": {"name": "parts", "friendly_name": "Motorcycle Parts"}}, 
+	{"privatekey": 3, "model": "products.category", "fields": {"name": "clearance", "friendly_name": "Clearance"}}, 
+	{"privatekey": 4, "model": "products.category", "fields": {"name": "deals", "friendly_name": "Deals"}}, 
+	{"privatekey": 5, "model": "products.category", "fields": {"name": "accessories", "friendly_name": "Motorcycle Accessories"}}, 
+	{"privatekey": 6, "model": "products.category", "fields": {"name": "gear", "friendly_name": "Motorcycle Gear"}}
+	
+	]
+
+
+
+
+
+
+
