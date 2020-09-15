@@ -9,20 +9,38 @@ def allshopitems(request):
     """ Show all items in the shop """
 
     products = Product.objects.all()
-
-    
     searchterm = None
     searchcategories = None
+    sort = None
+    direction = None
 
-    """ Category Search query """
+    
     if request.GET:
+
+        """ Sort by category, rating or price """
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'category__name'
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
+
+        """ Category Search query """
         if 'category' in request.GET:
             searchcategories = request.GET['category'].split(',')
             products = products.filter(category__name__in=searchcategories)
             searchcategories = Category.objects.filter(name__in=searchcategories)
 
-    """ Search bar query """
-    if request.GET:
+        """ Search bar query """
         if 'q' in request.GET:
             searchterm = request.GET['q']
             if not searchterm:
@@ -32,12 +50,13 @@ def allshopitems(request):
             searchterms = Q(name__icontains=searchterm) | Q(description__icontains=searchterm)
             products = products.filter(searchterms)
 
-
+    page_sort = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_term': searchterm,
         'search_categories': searchcategories,
+        'page_sort': page_sort,
     }
 
 
