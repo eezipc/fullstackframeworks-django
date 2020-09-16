@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('', views.basketview, name='basketview'),
+    path('updatebasket/<item_id>', views.updatebasketview, name='updatebasketview'),
     
 ]
