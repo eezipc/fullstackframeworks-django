@@ -100,7 +100,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'basketview' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
@@ -131,7 +131,7 @@
 </div>
 <div id="delivery-banner" class="row text-center">
             <div class="col bg-black">
-                <h4 class=" my-1">Free delivery on orders over ${{ free_shipping_threshold }}!</h4>                
+                <h4 class=" my-1">Free delivery on orders over ${{ freedelivery }}!</h4>                
             </div>            
         </div>
         
@@ -567,10 +567,10 @@
 
     <!--Call to action-->
     <div class="pt-4">
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank" role="button">Download MDB
+      <a class="btn btn-outline-white" href="https://www.google.com" target="_blank" role="button">Contact Us
         <i class="fas fa-download ml-2"></i>
       </a>
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start free tutorial
+      <a class="btn btn-outline-white" href="https://www.google.com" target="_blank" role="button">Support
         <i class="fas fa-graduation-cap ml-2"></i>
       </a>
     </div>
@@ -616,8 +616,8 @@
 
     <!--Copyright-->
     <div class="footer-copyright py-3">
-      © 2018 Copyright:
-      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+      © 2020 Copyright:
+      <a href="https://www.google.com" target="_blank"> Eezi Motorcycles </a>
     </div>
     <!--/.Copyright-->
 
