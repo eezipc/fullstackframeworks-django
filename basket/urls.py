@@ -20,5 +20,7 @@ from . import views
 urlpatterns = [
     path('', views.basketview, name='basketview'),
     path('updatebasket/<item_id>', views.updatebasketview, name='updatebasketview'),
+    path('changebasket/<item_id>', views.changebasketview, name='changebasketview'),
+    path('deletebasket/<item_id>', views.deletebasketview, name='deletebasketview'),
     
 ]
