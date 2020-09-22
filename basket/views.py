@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+
+from products.models import Product
 
 # Create your views here.
 """ Show the index page """
@@ -9,15 +12,17 @@ def basketview(request):
 
 def updatebasketview(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
-
+    product = Product.objects.get(pk=item_id)
     amount = int(request.POST.get('amount'))
     redirectpage = request.POST.get('redirectpage')
     basket = request.session.get('basket', {})
 
     if item_id in list(basket.keys()):
         basket[item_id] += amount
+        messages.success(request, f'Updated {product.name} amount to {basket[item_id]}')
     else:
         basket[item_id] = amount
+        messages.success(request, f'Added {product.name} to your bag')
 
     request.session['basket'] = basket
     print(request.session['basket'])
@@ -25,20 +30,25 @@ def updatebasketview(request, item_id):
 
 def changebasketview(request, item_id):
 
+    product = Product.objects.get(pk=item_id)
     amount = int(request.POST.get('amount'))
     basket = request.session.get('basket', {})
 
     if amount > 0:
         basket[item_id] = amount
+        messages.success(request, f'Updated {product.name} amount to {basket[item_id]}')
     else:
         del basket.pop[item_id]
+        messages.success(request, f'Removed {product.name} from your bag')
 
     request.session['basket'] = basket
     return redirect(reverse('basketview'))
 
 
 def deletebasketview(request, item_id):
+
     try:
+        product = Product.objects.get(pk=item_id)
         size = None
         if 'product_size' in request.POST:
             size = request.POST['product_size']
@@ -50,9 +60,11 @@ def deletebasketview(request, item_id):
                 basket.pop(item_id)
         else:
             basket.pop(item_id)
+            messages.success(request, f'Removed {product.name} from your bag')
 
         request.session['basket'] = basket
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.success(request, f'Oops, something went wrong {e}')
         return HttpResponse(status=500)

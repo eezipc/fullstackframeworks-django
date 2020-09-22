@@ -1,0 +1,50 @@
+ <div class="toast" data-autohide="false">
+    <div class="toast-header">
+      <strong class="mr-auto text-primary">Order Success</strong>
+      <small class="text-muted">Just Now</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+    </div>
+    <div class="toast-body">
+      {{ message }}
+    </div>
+
+
+{% if finaltotal %}
+            <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
+            <div class="">
+                {% for item in itemsinbasket %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            <img class="w-100" src="{{ item.product.image.url }}">
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 small text-muted">Qty: {{ item.amount }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong><p class="mt-3 mb-1 text-black">
+                        Total{% if freedeliveryupdate > 0 %} (Exc. delivery){% endif %}: 
+                        <span class="float-right">${{ totalamount|floatformat:2 }}</span>
+                    </p></strong>
+                    {% if freedeliveryupdate > 0 %}
+                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                            Spend <strong>${{ freedeliveryupdate }}</strong> more to get free next day delivery!
+                        </p>
+                    {% endif %}
+                    <a href="{% url 'basketview' %}" class="btn btn-black btn-block rounded-0">
+                        <span class="text-uppercase">Go To Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+
+  </div>
+</div>
