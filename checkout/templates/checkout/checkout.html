@@ -17,14 +17,87 @@
 
 <div class="container-fluid no-padding"> 
    <div class="row"> 
-   <div class="col-sm-2">Column 111</div>
+   <div class="col-sm-2">
+   
+   <form action="{% url 'checkout' %}" method="POST" id="payment">
+   {% csrf_token %}
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+
+<div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+    </div>
+  </div>
+
+
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Your Details</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          {{ order_form.firstname | as_crispy_field }}
+          {{ order_form.lastname | as_crispy_field }}
+          {{ order_form.emailaddress | as_crispy_field }}
+        </div>
+      </div>
+    </div>
+  </fieldset>
+    <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Delivery Details</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          {{ order_form.phone | as_crispy_field }}
+          {{ order_form.address1 | as_crispy_field }}
+          {{ order_form.address2 | as_crispy_field }}
+          {{ order_form.town | as_crispy_field }}
+          {{ order_form.county | as_crispy_field }}
+          {{ order_form.postalcode | as_crispy_field }}
+           {{ order_form.country | as_crispy_field }}
+          
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Pay Now</button>
+    </div>
+  </div>
+</form>
+   
+   
+   </div>
       <div class="col-sm-8">
       <div class="overlay"></div>
     <div class="container mb-2">
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Shopping Bag</h2>
+                <h2 class="logo-font mb-4">Checkout</h2>
                 <hr>
             </div>
         </div>
@@ -58,46 +131,13 @@
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <p class="my-0">{{ item.quantity }}</p>
+                                        <p class="my-0">{{ item.amount }}</p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price  | productsubtotal:item.amount }}</p>
                                     </td>
 
-    	                            <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'changebasketview' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="amount" value="{{ item.amount }}" min="1" max="99"
-                                                        data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    {% if item.product.has_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
-                                    </td>
+    	                           
 
 
                                 </tr>
@@ -122,12 +162,7 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
+                                    
                                 </td>
                             </tr>
                         </table>
