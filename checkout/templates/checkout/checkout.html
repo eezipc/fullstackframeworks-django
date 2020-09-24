@@ -17,81 +17,66 @@
 
 <div class="container-fluid no-padding"> 
    <div class="row"> 
-   <div class="col-sm-2">
-   
-   <form action="{% url 'checkout' %}" method="POST" id="payment">
-   {% csrf_token %}
+   <div class="col-sm-5">
 
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
+<form action="{% url 'checkout' %}" method="POST" id="stripepayment">
+                    {% csrf_token %}
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        {{ order_form.firstname | as_crispy_field }}
+                        {{ order_form.lastname | as_crispy_field }}
+                        {{ order_form.emailaddress | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                        {{ order_form.phone | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        {{ order_form.postalcode | as_crispy_field }}
+                        {{ order_form.town | as_crispy_field }}
+                        {{ order_form.address1 | as_crispy_field }}
+                        {{ order_form.address2 | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                       
+                    </fieldset>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
 
-<div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
 
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-    </div>
-  </div>
+                    <div class="submit-button text-right mt-5 mb-2">                    
+						<a href="{% url 'basketview' %}" class="btn btn-outline-black rounded-0">
+							<span class="icon">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							<span class="font-weight-bold">Adjust Bag</span>
+						</a>
+						<button id="submit-button" class="btn btn-black rounded-0">
+							<span class="font-weight-bold">Complete Order</span>
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</button>
+						<p class="small text-danger my-0">
+							<span class="icon">
+								<i class="fas fa-exclamation-circle"></i>
+							</span>
+							<span>Your card will be charged <strong>${{ finaltotal|floatformat:2 }}</strong></span>
+						</p>
+					</div>
+                </form>
 
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-    </div>
-  </div>
 
 
-  <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Your Details</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          {{ order_form.firstname | as_crispy_field }}
-          {{ order_form.lastname | as_crispy_field }}
-          {{ order_form.emailaddress | as_crispy_field }}
-        </div>
-      </div>
-    </div>
-  </fieldset>
-    <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Delivery Details</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          {{ order_form.phone | as_crispy_field }}
-          {{ order_form.address1 | as_crispy_field }}
-          {{ order_form.address2 | as_crispy_field }}
-          {{ order_form.town | as_crispy_field }}
-          {{ order_form.county | as_crispy_field }}
-          {{ order_form.postalcode | as_crispy_field }}
-           {{ order_form.country | as_crispy_field }}
-          
-        </div>
-      </div>
-    </div>
-  </fieldset>
 
-  
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Pay Now</button>
-    </div>
-  </div>
-</form>
-   
+
+
    
    </div>
-      <div class="col-sm-8">
+      <div class="col-sm-6">
       <div class="overlay"></div>
     <div class="container mb-2">
         <div class="row">
@@ -184,7 +169,7 @@
         </div>
     </div>
          </div>
-      <div class="col-sm-2">Column 333</div> 
+      <div class="col-sm-1">Column 333</div> 
    </div> 
 </div>
    
@@ -195,6 +180,87 @@
 
 {% block postloadjs %}
 {{ block.super }}
+
+{{ stripepublickey|json_script:"id_stripepublickey" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script type="text/javascript">
+   /*
+    Core logic/payment flow for this comes from here:
+    https://stripe.com/docs/payments/accept-a-payment
+    CSS from here: 
+    https://stripe.com/docs/stripe-js
+*/
+
+var stripepublickey = $('#id_stripepublickey').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
+var stripe = Stripe(stripepublickey);
+var elements = stripe.elements();
+var style = {
+    base: {
+        color: '#000',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
+        }
+    },
+    invalid: {
+        color: '#dc3545',
+        iconColor: '#dc3545'
+    }
+};
+var card = elements.create('card', {style: style});
+card.mount('#card-element');
+
+// Handle realtime validation errors on the card element
+card.addEventListener('change', function (event) {
+    var errorDiv = document.getElementById('card-errors');
+    if (event.error) {
+        var html = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
+        `;
+        $(errorDiv).html(html);
+    } else {
+        errorDiv.textContent = '';
+    }
+});
+
+// Handle form submit
+var form = document.getElementById('stripepayment');
+
+form.addEventListener('submit', function(ev) {
+    ev.preventDefault();
+    card.update({ 'disabled': true});
+    $('#submit-button').attr('disabled', true);
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+        }
+    }).then(function(result) {
+        if (result.error) {
+            var errorDiv = document.getElementById('card-errors');
+            var html = `
+                <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+                </span>
+                <span>${result.error.message}</span>`;
+            $(errorDiv).html(html);
+            card.update({ 'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
+            }
+        }
+    });
+});
+
+</script>
+
 {% include 'products/includes/itemamountscript.html' %}
 
 <script type="text/javascript">
