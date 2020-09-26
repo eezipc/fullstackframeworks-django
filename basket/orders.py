@@ -10,13 +10,13 @@ def basketorders(request):
     productamount = 0
     basket = request.session.get('basket', {})
 
-    for item_id, amount in basket.items():
+    for item_id, item_data in basket.items():
         product = get_object_or_404(Product, pk=item_id)
-        totalamount += amount * product.price
-        productamount += amount
+        totalamount += item_data * product.price
+        productamount += item_data
         itemsinbasket.append({
             'item_id': item_id,
-            'amount': amount,
+            'amount': item_data,
             'product': product,
         })
 

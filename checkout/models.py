@@ -38,7 +38,7 @@ class Userorders(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.total = self.singleorder.aggregate(Sum('singleordertotal'))['singleordertotal__sum']
+        self.total = self.singleorder.aggregate(Sum('singleordertotal'))['singleordertotal__sum'] or 0
         if self.total < settings.FREEDELIVERY:
             self.delivery = self.total * settings.DELIVERYPERCENT / 100
         else:
@@ -47,7 +47,7 @@ class Userorders(models.Model):
         self.save()
 
      
-    def saveorder(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         """
         Override the original save method to set the order number
         if it hasn't been set already.
@@ -67,7 +67,7 @@ class SingleOrder(models.Model):
     amount = models.IntegerField(null=False, blank=False, default=0)
     singleordertotal = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
-    def savesingleorder(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
         and update the order total.
