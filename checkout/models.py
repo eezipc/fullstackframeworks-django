@@ -38,7 +38,7 @@ class Userorders(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.total = self.singleorder.aggregate(Sum('singleordertotal'))['singleordertotal__sum'] or 0
+        self.total = self.singleorderitems.aggregate(Sum('singleordertotal'))['singleordertotal__sum'] or 0
         if self.total < settings.FREEDELIVERY:
             self.delivery = self.total * settings.DELIVERYPERCENT / 100
         else:
@@ -62,7 +62,7 @@ class Userorders(models.Model):
 
 
 class SingleOrder(models.Model):
-    order = models.ForeignKey(Userorders, null=False, blank=False, on_delete=models.CASCADE, related_name='singleorder')
+    order = models.ForeignKey(Userorders, null=False, blank=False, on_delete=models.CASCADE, related_name='singleorderitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     amount = models.IntegerField(null=False, blank=False, default=0)
     singleordertotal = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)

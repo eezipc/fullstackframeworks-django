@@ -3,10 +3,8 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
-
-from products.models import Product
 from .models import Userorders, SingleOrder
-
+from products.models import Product
 from basket.orders import basketorders
 
 import stripe
@@ -18,7 +16,7 @@ def checkout(request):
     stripepublickey = settings.STRIPEPUBLICKEY
     stripesecretkey = settings.STRIPESECRETKEY
     if request.method == 'POST':
-        basket = request.session.get('bag', {})
+        basket = request.session.get('basket', {})
 
         form_data = {
             'firstname': request.POST['firstname'],
