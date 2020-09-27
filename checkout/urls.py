@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from .stripe_webhooks import webhook
 
 urlpatterns = [
     path('', views.checkout, name='checkout'),
     path('confirmcheckout/<orderid>', views.confirmcheckout, name='confirmcheckout'),
+    path('stripe_webhook/', webhook, name='webhook'),
     
 ]
