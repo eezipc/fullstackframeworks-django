@@ -23,8 +23,10 @@ class Userorders(models.Model):
     country = models.CharField(max_length=40, null=False, blank=False)
     orderdate = models.DateTimeField(auto_now_add=True)
     delivery = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    finaltotal = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    total = models.DecimalField(max_digits=100, decimal_places=2, null=False, default=0)
+    finaltotal = models.DecimalField(max_digits=100, decimal_places=2, null=False, default=0)
+    originalbasket = models.TextField(null=False, blank=False, default='')
+    stripepid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _createorderid(self):
         """
