@@ -184,6 +184,9 @@
 
 {{ stripepublickey|json_script:"id_stripepublickey" }}
 {{ client_secret|json_script:"id_client_secret" }}
+
+
+
 <script type="text/javascript">
    /*
     Core logic/payment flow for this comes from here:
@@ -237,11 +240,49 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
+
+    var saveInfo = Boolean($('#id-save-info').attr('checked'));
+    // From using {% csrf_token %} in the form
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    var postData = {
+        'csrfmiddlewaretoken': csrfToken,
+        'client_secret': clientSecret,
+        'save_info': saveInfo,
+    };
+    var url = '/checkout/cache_checkout_data/';
+
+    $.post(url, postData).done(function () {
   
-    stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-            card: card,
-        }
+        stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name: $.trim(form.firstname.value),
+                    phone: $.trim(form.phone.value),
+                    email: $.trim(form.emailaddress.value),
+                    address:{
+                            line1: $.trim(form.address1.value),
+                            line2: $.trim(form.address2.value),
+                            city: $.trim(form.town.value),
+                            country: $.trim(form.country.value),
+                            state: $.trim(form.county.value),
+                    }
+                }
+            },
+            shipping: {
+                name: $.trim(form.firstname.value),
+                phone: $.trim(form.phone.value),
+                address: {
+                        line1: $.trim(form.address1.value),
+                        line2: $.trim(form.address2.value),
+                        city: $.trim(form.town.value),
+                        country: $.trim(form.country.value),
+                        postal_code: $.trim(form.postalcode.value),
+                        state: $.trim(form.county.value),
+                }
+            },
+
+        
     }).then(function(result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
@@ -260,8 +301,10 @@ form.addEventListener('submit', function(ev) {
             }
         }
     });
+}).fail(function() {
+    location.reload();
+    })
 });
-
 </script>
 
 {% include 'products/includes/itemamountscript.html' %}

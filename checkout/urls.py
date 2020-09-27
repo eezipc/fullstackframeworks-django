@@ -21,6 +21,7 @@ from .stripe_webhooks import webhook
 urlpatterns = [
     path('', views.checkout, name='checkout'),
     path('confirmcheckout/<orderid>', views.confirmcheckout, name='confirmcheckout'),
+    path('cache_checkout_data/', views.cache_checkout_data, name='cache_checkout_data'),
     path('stripe_webhook/', webhook, name='webhook'),
     
 ]
