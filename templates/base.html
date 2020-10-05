@@ -608,13 +608,11 @@
       </a>
 {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-      <a class="btn btn-outline-white" href="https://www.google.com" target="_blank" role="button">Manage Products
+      <a class="btn btn-outline-white" href="{% url 'new_product' %}" target="_blank" role="button">Manage Products
         <i class="fas fa-graduation-cap ml-2"></i>
       </a>
             {% endif %}
-<a class="btn btn-outline-white" href="{% url 'profile' %}" class="dropdown-item">My Profile</a>Manage Products
-        <i class="fas fa-graduation-cap ml-2"></i>
-      </a>
+
 <a class="btn btn-outline-white" href="{% url 'account_logout' %}" target="_blank" role="button">Logout
         <i class="fas fa-graduation-cap ml-2"></i>
       </a>

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
+from .forms import ProductForm
 
 # Create your views here.
 
@@ -74,3 +75,54 @@ def product_detail(request, product_id):
 
 
     return render(request, 'products/shopping_detail.html', context)
+
+def new_product(request):
+    """ Add a product to the store """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You have added a new product')
+            return redirect (reverse('new_product'))
+        else:
+            messages.error(request, 'Oops, something does not look right. Check the form again')
+    else:
+        form = ProductForm()
+
+    template = 'products/new_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+def edit_product(request, product_id):
+    """ Edit a product to the store """
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You have edited a product')
+            return redirect (reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Oops, something does not look right. Check the form again')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are now editing {product.name}')
+        
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
+
+    return render(request, template, context)
+
+
+def delete_product(request, product_id):
+    """ Delete a product from the store """
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
