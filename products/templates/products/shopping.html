@@ -13,8 +13,9 @@
 <!-- Main Content-->
 {% block content %}
 
+
 <div class="row">
-            <div class="product-container col-10 offset-1">
+            <div class="container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
                 <div class="row">
                 <!-- Loop showing all products-->
@@ -92,10 +93,13 @@
                 </div>
             </div>
 
-              <div class="row mt-1 mb-2">
-                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                        <div class="sort-select-wrapper w-50">
-                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5 justify-content-center">
+
+
+        <!-- Navbar brand -->
+        <span class="navbar-brand"><select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if page_sort == 'None_None' %}selected{% endif %}>Sort by...</option>
                                 <option value="price_asc" {% if page_sort == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                                 <option value="price_desc" {% if page_sort == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
@@ -105,21 +109,24 @@
                                 <option value="name_desc" {% if page_sort == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                                 <option value="category_asc" {% if page_sort == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
                                 <option value="category_desc" {% if page_sort == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                                
-                                
-                            </select>
-                        </div>
-                    </div>
-                
-                    <div class="col-12 col-md-6 order-md-first">
-                        <p class="text-muted mt-3 text-center text-md-left">
+                                   
+                    </select></span>
+
+         <span class="navbar-brand">
+         <div class=" order-md-first">
+                        <p class="text-muted mt-3 ">
                             {% if search_term or search_categories or page_sort != 'None_None' %}
                                 <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
                             {% endif %}
                             {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
                     </div>
-                </div>
+         </span>
+
+      </nav>
+      <!--/.Navbar-->
+
+</div>
 
 </div>
 
