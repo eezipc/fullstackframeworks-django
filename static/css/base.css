@@ -109,7 +109,17 @@
 }
 
 
-/* CAROUSEL */
+
+/* CAROUSEL*/
+
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
 
 
 /* STRIPE */
@@ -2316,6 +2326,3 @@ section {
   color: #fff;
   text-decoration: none;
 }
-
-
-
