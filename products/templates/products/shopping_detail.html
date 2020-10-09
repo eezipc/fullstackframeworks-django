@@ -13,8 +13,12 @@
 <!-- Main Content-->
 {% block content %}
 
-
-  <div class="card text-center">
+<section class="subscription bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <div>
+                     <div class="card text-center">
   <div class="card-header">
     Product Details:
   </div>
@@ -59,9 +63,31 @@
 
 
     
+  </div>            
+             
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+
+
+  <div class="card text-center">
+  
+  <div class="card-body">
+    
   </div>
-  <div class="card-footer text-muted">
-    <form class="form" action="{% url 'updatebasketview' product.id %}" method="POST">
+
+<section class="subscription bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <div>
+                       <form class="form" action="{% url 'updatebasketview' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="col-12">
@@ -96,12 +122,23 @@
                                     </span>
                                     <span class="text-uppercase">Continue Shopping</span>
                                 </a>
-                                <input type="submit" class="btn btn-primary text-uppercase mt-5" value="Add to Basket">
+                                
+                                       
+                                   
+                                <input type="submit" class="btn btn-primary mt-5" value="Add to Basket"> 
                             </div>
                             <input type="hidden" name="redirectpage" value="{{ request.path }}">
                         </div>
-                    </form>
-  </div>
+                    </form>            
+             
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+  
 </div>
 
 

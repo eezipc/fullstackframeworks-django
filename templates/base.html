@@ -67,20 +67,14 @@
           </li>
 
 
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                <span class="icon">
+        <li class="nav-item">    
+        <form class="form-inline mr-auto" method="GET" action="{% url 'products' %}">
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search Our Site" name="q">
+      <button class="btn btn-primary btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search<span class="icon">
                                     <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            
-
+                                </span></button>
+    </form>
+        </li>
 
         </ul>
       </div>
@@ -186,61 +180,53 @@
           <!-- Links  -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'products' %}">All
+              <a class="nav-link" href="{% url 'products' %}">All Products
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="{% url 'products' %}?category=parts">Motorcycle Parts</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="{% url 'products' %}?category=gear">Motorcycle Gear</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="{% url 'products' %}?category=accessories">Motorcycle Accessories</a>
             </li>
-            <li class="nav-item">
+           
+            <li class="nav-item active">
               <a class="nav-link" href="{% url 'products' %}?category=motorcycles">Motorcycles</a>
             </li>
 
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'products' %}">Special Offers
+                
+              </a>
+            </li>
+
+        
+        <li class="nav-item">
+
+      
+</li>
+<li class="nav-item">
+<form method="GET" action="{% url 'products' %}">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search" name="q">
+    <div class="input-group-btn">
+      <button class="btn btn-default" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
+</li>
           </ul>
           <!-- Links -->
 
-<ul class="navbar-nav w-auto mx-auto">
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Products
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'products' %}?sort=rating&direction=asc" class="dropdown-item ">By Rating</a>
-                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
-                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
-            </div>
-        </li>
-
-      
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Special Offers
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
-                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
-                <a href="{% url 'products' %}?category=clearance, deals" class="dropdown-item">All Specials</a>
-            </div>
-        </li>
-    </ul>
 
 
 
-          <form class="form-inline">
-            <div class="md-form my-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </div>
-          </form>
         </div>
         <!-- Collapsible content -->
 
@@ -250,13 +236,8 @@
 </div>
 
 
-  <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black">
-                <h4 class=" my-1">Free delivery on orders over ${{ freedelivery }}!</h4>                
-            </div>            
-        </div>
+ 
 
-       
 
   
 
@@ -308,16 +289,12 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Sign Up To Our Monthly Email Update</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
+          
 
         </div>
+        
       </div>
+      
     </div>
 
     <div class="container d-md-flex py-4">
@@ -329,18 +306,19 @@
      
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      
+        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="fab fa-skype"></i></a>
+        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
 
 <a class="top-link hide" href="" id="js-top">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-  <span class="screen-reader-text"></span>
+  <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
+  
 </a>
 
 
