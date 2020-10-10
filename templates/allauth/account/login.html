@@ -37,13 +37,12 @@
             value="{{ redirect_field_value }}"
           />
           {% endif %}
+           <button class="btn btn-block send-button tx-tfm" type="submit">
+            {% trans "Sign In" %}
+          </button>
           <a class="btn btn-block send-button tx-tfm" href="{% url 'index' %}"
             >Home</a
           >
-          <button class="btn btn-block send-button tx-tfm" type="submit">
-            {% trans "Sign In" %}
-          </button>
-
           <p class="small mt-3">
             By signing up, you are indicating that you have read and agree to
             the <a href="#" class="ps-hero__content__link">Terms of Use</a> and
