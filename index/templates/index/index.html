@@ -61,7 +61,7 @@
       </div>
 </section>
 
- <section class="subscription bg-white">
+ <section class="subscription bg-white pr-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -86,14 +86,7 @@
         <div class="col-6">
             <h3 class="mb-3">Special Offers </h3>
         </div>
-        <div class="col-6 text-right">
-            <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                <i class="fa fa-arrow-left"></i>
-            </a>
-            <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                <i class="fa fa-arrow-right"></i>
-            </a>
-        </div>
+       
         <div class="col-12">
             <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
 
@@ -206,11 +199,21 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+         <div class="col-6 text-right">
+            <a class="btn-sm  mb-3 mr-1 " href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+            <a class="btn-sm  mb-3 mr-1 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 </section>
@@ -246,27 +249,7 @@
 {% block subscribe %}
     
     
-<section class="subscription bg-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="subscription-wrapper">
-              
-                    <div class="d-flex subscription-content justify-content-between align-items-center flex-column flex-md-row text-center text-md-left">
-                        <h3 class="flex-fill">Subscribe <br> to our newsletter</h3>
-                        <form action="#" class="row flex-fill">
-                            <div class="col-lg-7 my-md-2 my-2"> <input type="email" class="form-control px-4 border-0 w-100 text-center text-md-left" id="email" placeholder="Your Email" name="email"> </div>
-                            <div class="col-lg-5 my-md-2 my-2"> <button type="submit" class="btn btn-primary btn-lg border-0 w-100">Subscribe Now</button> </div>
-                        </form>
-                        
-                    </div>
-                   
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</section>
+
 {% endblock %}
 
       </div><!-- /.container -->

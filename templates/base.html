@@ -37,7 +37,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbarbackground">
     <div class="container">
     
-      <a class="navbar-brand" href="{% url 'index' %}"><img src="../media/logo.png" alt="" class="img-fluid"></a>
+      <a class="navbar-brand" href="{% url 'index' %}"><img src="../media/logo/logo2.png" alt="" class="img-fluid"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -312,17 +312,16 @@
      
     </div>
     <!--/.footer-->
-    
+    <!--Credit Card Footer-->
     <div class="footer-bottom">
         <div class="container">
             <p class="pull-left"> Copyright 2020. All rights reserved. </p>
             <div class="pull-right"> 
-                <ul class="nav nav-pills payments">
-                    <li>We Accept:  </li>
-                    
-                    <li><i class="fab fa-cc-mastercard"></i></li>
-                    <li><i class="fab fa-cc-amex"></i></li>
-                    <li><i class="fab fa-cc-visa"></i></li>               
+                <ul class="nav nav-pills payments ">
+                    <li class="mr-3">We Accept:  </li>
+                    <li class="mr-3"><i class="fab fa-cc-mastercard"></i></li>
+                    <li class="mr-3"><i class="fab fa-cc-amex"></i></li>
+                    <li class="mr-3"><i class="fab fa-cc-visa"></i></li>               
                 </ul> 
             </div>
         </div>
@@ -330,93 +329,11 @@
     <!--/.footer-bottom--> 
 </footer>
 
-
-
-  
-
-  <!-- ======= Footer
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Eezi Motorcycles</h3>
-            <p>
-              Mayo <br>
-              Ireland<br>
-              Ireland <br><br>
-              <strong>Phone:</strong> +353123456789<br>
-              <strong>Email:</strong> info@eezimotorcycles.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-
-            <ul>
-            {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'products' %}">Manage Products</a></li>
-                {% endif %}
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'profile' %}">My Profile</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'account_logout' %}">Logout</a></li>
-                    {% else %}
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'account_signup' %}">Register</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'account_login' %}">Login</a></li>
-            {% endif %}
-            </ul>
-          </div>
-
-        </div>
-        
-      </div>
-      
-    </div>
-
-    <div class="container d-md-flex py-4">
-
-      <div class="mr-md-auto text-center text-md-left">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Eezi Motorcycles</span></strong>. All Rights Reserved
-        </div>
-     
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-      
-        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="fab fa-skype"></i></a>
-        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div>
-  </footer>
-   ======= -->
-
+<!-- Back To Top Icon -->
 <a class="top-link hide" href="" id="js-top">
   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
   
-</a>
-
-
-
-
- 
-
-        
+</a>    
 
   {% block page_header %}
 
@@ -424,12 +341,6 @@
  
 
     {% endblock %}
-
-   
-
-    
-
- 
 
     {% if messages %}
         <div class="message-container">
