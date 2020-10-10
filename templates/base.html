@@ -277,6 +277,7 @@
                     {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                         <li> <a href="{% url 'products' %}">Manage Products</a> </li>
+                        <li> <a href="{% url 'new_product' %}">Add A Product</a> </li>
                     {% endif %}
                         <li> <a href="{% url 'profile' %}">My Profile</a> </li>
                         <li> <a href="{% url 'account_logout' %}">Logout</a> </li>

@@ -67,59 +67,6 @@
                                     <td class="py-3">
                                         <p class="my-0">${{ item.product.price  | productsubtotal:item.amount }}</p>
                                     </td>
-<!-- 
-    	                            <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'changebasketview' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">
-                                                <div class="input-group">
-
-                                                <span class="input-group-btn">
-                                            <button type="button" class=" decrement-qty btn btn-block send-button tx-tfm" 
-                                            disabled="disabled" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                <span class="fas fa-minus"></span>
-                                                </button>
-                                                </span>
-                                                <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="amount" value="{{ item.amount }}" min="1" max="99"
-                                                        data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
-                                                <span class="input-group-btn">
-                                            <button type="button" class="increment-qty btn btn-block send-button tx-tfm" 
-                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                <span class="fas fa-plus "></span>
-                                                
-                                                </button>
-                                                </span>
-          
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="amount" value="{{ item.amount }}" min="1" max="99"
-                                                        data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                   
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
-                                    </td>
--->
 
                                 </tr> 
                                 <tr>
@@ -127,48 +74,25 @@
                                      <form class="form update-form" method="POST" action="{% url 'changebasketview' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
-                                                <div class="input-group">
-
-                                                <span class="input-group-btn">
+                                                <div class="input-group"> 
+                                                <div class="input-group-prepend">
                                             <button type="button" class=" decrement-qty btn btn-block send-button tx-tfm" 
                                             disabled="disabled" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <span class="fas fa-minus"></span>
                                                 </button>
-                                                </span>
+                                                </div>
                                                 <input class="form-control form-control-sm qty_input" type="number"
                                                         name="amount" value="{{ item.amount }}" min="1" max="99"
                                                         data-item_id="{{ item.item_id }}"
                                                         id="id_qty_{{ item.item_id }}">
-                                                <span class="input-group-btn">
+                                                <div class="input-group-append">
                                             <button type="button" class="increment-qty btn btn-block send-button tx-tfm" 
                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span class="fas fa-plus "></span>
-                                                
+   
                                                 </button>
-                                                </span>
-           <!--
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    <input class="form-control form-control-sm qty_input" type="number"
-                                                        name="amount" value="{{ item.amount }}" min="1" max="99"
-                                                        data-item_id="{{ item.item_id }}"
-                                                        id="id_qty_{{ item.item_id }}">
-                                                    <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                   -->
                                                 </div>
+                                             </div>
                                             </div>
                                         </form>
                                         <a class="update-link text-info float-left"><small>Update</small></a>
