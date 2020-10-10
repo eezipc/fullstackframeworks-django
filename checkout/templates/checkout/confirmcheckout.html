@@ -1,187 +1,197 @@
-{% extends "base.html" %}
-{% load static %}
-
-
-
-{% block page_header %}
-  
-  
-{% endblock %}
-
+{% extends "base.html" %} 
+{% load static %} 
+{% block page_header %} 
+{% endblock %} 
 {% block content %}
 
+
 <div class="container">
-<div class="row">
-<table class="table table-hover">
-  <thead>
-    <tr>
-     
-      <th scope="col"><div class="col">
-                
-                <p class="text-black">Thank You For Your Order</p>
-                 </div></th>
-     
-    </tr>
-    <tr>
-     
-      <th scope="col">
-                
-                <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.emailaddress }}</strong>.</p>
-            </th>
-     
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-      <td colspan="2">Order Info:</td>
-     <td colspan="2">Order Info:</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Order Number:</td>
-      <td colspan="2">{{ order.orderid }}</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Order Date:</td>
-      <td>{{ order.orderdate }}</td>
-    </tr>
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+        <tr class="text-center">
+          <th colspan="2">
+            <div class="col text-center">
+              <p class="text-black"><h2>Thank You For Your Order</h2></p>
+            </div>
+          </th>
+        </tr>
+        <tr class="text-center">
+          <th colspan="2">
+            <p class="text-black">
+              <h4>Your order information is below. <br> A confirmation email will be sent
+              to <strong>{{ order.emailaddress }}</strong></h4>.
+            </p>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <td colspan="2"><h2>Order Info:</h2></td>
+          
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Order Number:</p></td>
+          <td colspan="1">{{ order.orderid }}</td>
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Order Date:</p></td>
+          <td>{{ order.orderdate }}</td>
+        </tr>
 
-    <tr>
-      
-      <td colspan="2">Order Details:</td>
-      <td>Order Info:</td>
-    </tr>
+        <tr class="text-center">
+          <td colspan="2" ><h2>Order Details:</h2></td>
+          
+        </tr>
 
+        <tr>
+          <td colspan="1">
+            {% for item in order.singleorderitems.all %}
 
-<tr>
-      
-      <td colspan="2">{% for item in order.singleorderitems.all %}
-                    
-                            <p class="small mb-0 text-black font-weight-bold">
-                                {{ item.product.name }}
-                            </p>
-                        
-                        
-                    {% endfor %}</td>
-      <td>{% for item in order.singleorderitems.all %}
-                    
-                        
-                        
-                            <p class="small mb-0 text-black font-weight-bold">{{ item.amount }} @ ${{ item.product.price }} each</p>
-                      
-                    
-                    {% endfor %}
-                    </td>
-    </tr>
+            <p class=" mb-0 text-black font-weight-bold">
+              {{ item.product.name }}
+            </p>
 
+            {% endfor %}
+          </td>
+          <td>
+            {% for item in order.singleorderitems.all %}
 
-    <tr>
-      
+            <p class="">
+              {{ item.amount }} @ ${{ item.product.price }} each
+            </p>
 
-      <td colspan="2">Delivering To:</td>
-      <td>Order Info:</td>
-    </tr>
+            {% endfor %}
+          </td>
+        </tr>
 
-    <tr>
-      
-      <td colspan="2">First Name</td>
-      <td>{{ order.firstname }}</td>
-    </tr>
+        <tr class="text-center">
+          <td colspan="2"><h2>Delivering To:</h2></td>
+          
+        </tr>
 
-    <tr>
-      
-      <td colspan="2">Last Name</td>
-      <td>{{ order.lastname }}</td>
-    </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">First Name</p></td>
+          <td>{{ order.firstname }}</td>
+        </tr>
 
-    <tr>
-      
-      <td colspan="2">Address Line 1</td>
-      <td>{{ order.address1 }}</td>
-    </tr>
-    
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Last Name</p></td>
+          <td>{{ order.lastname }}</td>
+        </tr>
 
-     <tr>
-      {% if order.address2 %}
-      <td colspan="2">Address Line 2</td>
-      <td>{{ order.address2 }}</td>
-      {% endif %}
-    </tr>
-    <tr>
-      {% if order.county %}
-      <td colspan="2">County</td>
-      <td>{{ order.county }}</td>
-      {% endif %}
-    </tr>
-    <tr>
-      
-      <td colspan="2">Town</td>
-      <td>{{ order.town }}</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Post Code</td>
-      <td>{{ order.postalcode }}</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Country</td>
-      <td>{{ order.country }}</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Phone Number</td>
-      <td>{{ order.phone }}</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Order Total</td>
-      <td>{{ order.total }}</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Delivery Cost</td>
-      <td>{{ order.delivery }}</td>
-    </tr>
-    <tr>
-      
-      <td colspan="2">Final Total</td>
-      <td>{{ order.finaltotal }}</td>
-    </tr>
-  </tbody>
-</table>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Address Line 1</p></td>
+          <td>{{ order.address1 }}</td>
+        </tr>
 
+        <tr>
+          {% if order.address2 %}
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Address Line 2</p></td>
+          <td>{{ order.address2 }}</td>
+          {% endif %}
+        </tr>
+        <tr>
+          {% if order.county %}
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">County</p></td>
+          <td>{{ order.county }}</td>
+          {% endif %}
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Town</p></td>
+          <td>{{ order.town }}</td>
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Post Code</p></td>
+          <td>{{ order.postalcode }}</td>
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Country</p></td>
+          <td>{{ order.country }}</td>
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Phone Number</p></td>
+          <td>{{ order.phone }}</td>
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Order Total</p></td>
+          <td>${{ order.total }}</td>
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Delivery Cost</p></td>
+          <td>${{ order.delivery }}</td>
+        </tr>
+        <tr>
+          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Final Total</p></td>
+          <td>${{ order.finaltotal }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
-  
 
 <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="{{'../media/bikeimages/frontbike.jpg'}}" alt="Motorcyle Accessories" width="140" height="140">
-            <h2>Motorcyle Accessories</h2>
-            <p>Check Out Our Extensive Range of Motorcycle Accessories</p>
-            <p><a class="btn btn-primary" href="/products/?category=accessories" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="../media/bikeimages/helmet.jpg" alt="Motorcyle Gear" width="140" height="140">
-            <h2>Motorcycle Gear</h2>
-            <p>Check Out Our Extensive Range of Motorcycle Gear</p>
-            <p><a class="btn btn-primary" href="/products/?category=gear" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="../media/bikeimages/lakebike.jpg" alt="Motorcyle Parts" width="140" height="140">
-            <h2>Motorycycle Parts</h2>
-            <p>Check Out Our Extensive Range of Motorcycle Parts</p>
-            <p><a class="btn btn-primary" href="/products/?category=parts" role="button">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-
-</div>
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-lg-4">
+      <img
+        class="rounded-circle"
+        src="{{'../media/bikeimages/frontbike.jpg'}}"
+        alt="Motorcyle Accessories"
+        width="140"
+        height="140"
+      />
+      <h2>Motorcyle Accessories</h2>
+      <p>Check Out Our Extensive Range of Motorcycle Accessories</p>
+      <p>
+        <a
+          class="btn btn-primary"
+          href="/products/?category=accessories"
+          role="button"
+          >View details &raquo;</a
+        >
+      </p>
     </div>
-    
+    <!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img
+        class="rounded-circle"
+        src="../media/bikeimages/helmet.jpg"
+        alt="Motorcyle Gear"
+        width="140"
+        height="140"
+      />
+      <h2>Motorcycle Gear</h2>
+      <p>Check Out Our Extensive Range of Motorcycle Gear</p>
+      <p>
+        <a class="btn btn-primary" href="/products/?category=gear" role="button"
+          >View details &raquo;</a
+        >
+      </p>
+    </div>
+    <!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <img
+        class="rounded-circle"
+        src="../media/bikeimages/lakebike.jpg"
+        alt="Motorcyle Parts"
+        width="140"
+        height="140"
+      />
+      <h2>Motorycycle Parts</h2>
+      <p>Check Out Our Extensive Range of Motorcycle Parts</p>
+      <p>
+        <a
+          class="btn btn-primary"
+          href="/products/?category=parts"
+          role="button"
+          >View details &raquo;</a
+        >
+      </p>
+    </div>
+    <!-- /.col-lg-4 -->
+  </div>
+  <!-- /.row -->
+</div>
+
 {% endblock %}
