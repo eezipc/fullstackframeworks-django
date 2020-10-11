@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
   
+
+  
   <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     {% block corejs %}
@@ -29,7 +31,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     {% endblock %}
- 
+ <!--MODAL POPUP SCRIPT-->
  <script>
 jQuery(document).ready(function(){
 
@@ -42,15 +44,19 @@ jQuery(document).ready(function(){
     $("#myModal").modal();
     }
   // End
-  
-  // Do not include the code below, it is just for the 'Reset Session' button in the viewport.
-  // This is same as closing the browser tab.
-  $('#reset-session').on('click',function(){
-  sessionStorage.setItem('story','');
-  });
 });
 </script>
- 
+  <!--Mailchimp SCRIPT-->
+ <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/e24a29d560caae60c6bf553b9/48fac4099b24e10312285e40d.js");</script>
+
+
+
 </head>
 <body>
 
@@ -64,19 +70,19 @@ jQuery(document).ready(function(){
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if finaltotal %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'basketview' %}"><i class="fas fa-shopping-basket fa-lg"></i><p class="my-0">
+                
+
+
+        <li class="nav-item">    
+        <form class="form-inline mr-auto" method="GET" action="{% url 'products' %}">
+      <input class="form-control form-control-lg" type="text" placeholder="Search" aria-label="Search Our Site" name="q">
+      <button class="btn btn-primary btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search<span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span></button>
+    </form>
+        </li>
+ <li class="nav-item">
+            <a class="nav-link {% if finaltotal %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'basketview' %}"><i class="fas fa-shopping-basket fa-2x"></i><p class="my-0">
                                     {% if finaltotal %}
                                         ${{ finaltotal|floatformat:2 }}
                                     {% else %}
@@ -86,43 +92,17 @@ jQuery(document).ready(function(){
                                    
                                 
           </li>
-
-
-        <li class="nav-item">    
-        <form class="form-inline mr-auto" method="GET" action="{% url 'products' %}">
-      <input class="form-control" type="text" placeholder="Search" aria-label="Search Our Site" name="q">
-      <button class="btn btn-primary btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search<span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span></button>
-    </form>
-        </li>
-
         </ul>
       </div>
     </div>
   </nav>
 
 
-<!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-none d-lg-block">
-    <div class="container d-flex">
-      <div class="contact-info mr-auto">
-        <i class="icofont-envelope"></i><a href="mailto:info@eezimotorcycles.com">info@eezimotorcycles.com</a>
-        <i class="icofont-phone"></i> +353123456789
-      </div>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-      </div>
-    </div>
-  </section>
+<section>
 
   <!-- ======= Header ======= -->
   <header id="header ">
-    <div class="container d-flex mt-5 ">
+    <div class="container d-flex mt-5 pt-5">
 
       <div class="logo mr-auto">
         <h1 class="text-light"><a href="{% url 'index' %}">Eezi Motorcycles</a></h1>
@@ -156,7 +136,7 @@ jQuery(document).ready(function(){
             {% endif %}
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -164,7 +144,7 @@ jQuery(document).ready(function(){
     </div>
   </header><!-- End Header -->
 
-
+</section>
 
 
 {% block index %}
@@ -306,15 +286,32 @@ jQuery(document).ready(function(){
                         <li> <a href="{% url 'account_signup' %}">Register</a> </li>
                         <li> <a href="{% url 'account_login' %}">Login</a> </li>
                     {% endif %}
+                        <li> <a href="{% url 'contact' %}">Contact</a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                    <h3> Subscribe Us </h3>
+                    <h3> Subscribe </h3>
                     <ul>
                         <li>
                             <div class="input-append subscribe-btn text-center">
-                                <input type="text" class="full text-center" placeholder="Email ">
-                                <button class="btn  btn-success" type="button"> Subscribe <i class="fa fa-save"> </i> </button>
+<!-- Begin Mailchimp Signup Form -->
+
+
+<form action="https://gmail.us2.list-manage.com/subscribe/post?u=e24a29d560caae60c6bf553b9&amp;id=6dcbeacc29" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Subscribe" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e24a29d560caae60c6bf553b9_6dcbeacc29" tabindex="-1" value="" class="full text-center"></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn  btn-success"></div>
+    
+</form>
+
+
+<!--End mc_embed_signup-->
+
+                            
+                                
+                                
                             </div>
                         </li>
                     </ul>

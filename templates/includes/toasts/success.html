@@ -17,7 +17,7 @@
       <strong class="mr-auto text-primary"
         ><i class="far fa-thumbs-up"></i
       ></strong>
-      <strong class="mr-auto text-primary">Order Success</strong>
+      <strong class="mr-auto text-primary">Success</strong>
 
       <small class="text-muted">Just Now</small>
       <button
@@ -34,9 +34,9 @@
     </div>
 
     {% if finaltotal and not on_profile_page %}
-    <p class="logo-font bg-white text-black py-1">
-      Your Bag ({{ product_count }})
-    </p>
+    <div class="toast-body">
+      Items In Your Bag: {{ productamount }}
+    </div>
     <div class="">
       {% for item in itemsinbasket %}
       <div class="row">

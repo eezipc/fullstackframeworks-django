@@ -9,54 +9,63 @@
   {% endblock %}
 
 {% block index %}
-<!--
-<div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Subscribe our Newsletter</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Subscribe to our mailing list to get the latest updates straight in your inbox.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email Address">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>-->
+<!--MODAL POPUP-->
 
-
-<!-- Bootstrap Modal -->
 <div class="modal fade" id="myModal" role="dialog">
-<div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Subscribe our Newsletter</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<div class="modal-dialog modal-lg">
+         <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <p class="heading">Free Shipping Offer
+              <strong></strong>
+            </p>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="white-text">&times;</span>
+            </button>
+          </div>
+
+          <!--Body-->
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-3">
+                <p></p>
+                <p class="text-center">
+                  <i class="fas fa-gift fa-4x"></i>
+                </p>
+              </div>
+
+              <div class="modal-footer flex-center text-center">
+                
+               
+                <h2>
+                  WOW! 
+                </h2>
+
+              </div>
+                <div class="modal-footer flex-center text-center">
+                
+               
+               
+<h2>
+                  Free Shipping When You Spend $50
+                </h2>
+              </div>
             </div>
-            <div class="modal-body">
-                <p>Subscribe to our mailing list to get the latest updates straight in your inbox.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email Address">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
-            </div>
+          </div>
+
+          <!--Footer-->
+          <div class="modal-footer flex-center">
+            <a href="{% url 'products' %}" class="btn btn-danger">Start Shopping Now
+              <i class="far fa-gem ml-1 white-text"></i>
+            </a>
+            <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
+          </div>
         </div>
+        <!--/.Content-->
+      </div>
     </div>
-</div> <!-- // #myModal -->
 
 
 

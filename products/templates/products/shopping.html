@@ -35,6 +35,7 @@
                                 <div class="card-body pb-0">
                                     <p class="mb-0">{{ product.name }}</p>
                                 </div>
+                                
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
@@ -53,17 +54,21 @@
                                             {% else %}
                                                 <small class="text-muted">No Rating</small>
                                             {% endif %}
-
+                                            
                                             {% if request.user.is_superuser %}
                                                 <small class="ml-3">
                                                     <a href="{% url 'edit_product' product.id %}">Edit</a> | 
                                                     <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                                                 </small>
                                             {% endif %}
+                                            <div>
+                                            <a href="{% url 'product_detail' product.id %}" class="btn btn-primary stretched-link">Find Out More</a>
+                                            </div>
 
 
                                             
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
