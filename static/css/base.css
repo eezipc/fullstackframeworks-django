@@ -2607,3 +2607,20 @@ input[type=number]::-webkit-outer-spin-button {
 	h1{ font-size: 26px; }
 	h2{ font-size: 20px; }
 } 
+
+/*MODAL POPUP*/
+$text: #FFD5C2;
+body {
+  background-color: #335C64; 
+  margin:10px;
+  h4 {
+    color: $text;
+    }
+  .desc {
+    color: $text;
+    margin-bottom: 4px;
+    }
+  .btn-sm {
+    margin-bottom: 15px;
+  }
+}

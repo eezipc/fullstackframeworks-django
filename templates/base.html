@@ -27,8 +27,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     {% endblock %}
  
+ <script>
+jQuery(document).ready(function(){
+
+  // Start
+  // sessionStorage.getItem('key');
+  if (sessionStorage.getItem("story") !== 'true') {
+    // sessionStorage.setItem('key', 'value'); pair
+    sessionStorage.setItem("story", "true");
+    // Calling the bootstrap modal
+    $("#myModal").modal();
+    }
+  // End
+  
+  // Do not include the code below, it is just for the 'Reset Session' button in the viewport.
+  // This is same as closing the browser tab.
+  $('#reset-session').on('click',function(){
+  sessionStorage.setItem('story','');
+  });
+});
+</script>
  
 </head>
 <body>
@@ -329,6 +350,7 @@
     <!--/.footer-bottom--> 
 </footer>
 
+
 <!-- Back To Top Icon -->
 <a class="top-link hide" href="" id="js-top">
   <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
@@ -368,7 +390,6 @@
     
     {% endblock %}
 
-  
  
 <script type="text/javascript">
 		// Set a variable for our button element.
