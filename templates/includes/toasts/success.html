@@ -30,8 +30,36 @@
       </button>
     </div>
     <div class="toast-body">
-      {{ message }}
+      
+      <div class="modal-content">
+          <!--Header-->
+        
+
+          <!--Body-->
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-3">
+                <p></p>
+                <p class="text-center">
+                  <i class="fas fa-gift fa-4x"></i>
+                </p>
+              </div>
+
+              
+                <div class="modal-footer flex-center text-center">
+         
+<h2>
+                  {{ message }}
+                </h2>
+              </div>
+            </div>
+          </div>
     </div>
+
+   
+
+   
 
     {% if finaltotal and not on_profile_page %}
     <div class="toast-body">
@@ -68,6 +96,7 @@
           Spend <strong>${{ freedeliveryupdate }}</strong> more to get free next
           day delivery!
         </p>
+        
         {% endif %}
         <a
           href="{% url 'basketview' %}"
