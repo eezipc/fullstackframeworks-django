@@ -119,32 +119,35 @@
                             </div>
 
                             <div class="col-12">
-                                <a href="{% url 'products' %}" class="btn btn-primary mt-5">
+                            
+                            
+                                <a href="{% url 'products' %}" class="btn btn-block send-button tx-tfm">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="text-uppercase">Continue Shopping</span>
                                 </a>
                                                                    
-                                <input type="submit" class="btn btn-primary" value="Add to Basket"> 
+                                <input type="submit" class="btn btn-block send-button tx-tfm" value="Add to Basket"> 
                             </div>
                             <input type="hidden" name="redirectpage" value="{{ request.path }}">
-                        </div>
-                    </form>    
-                {% if finaltotal %}          
-             <a
+                            <a
           href="{% url 'basketview' %}"
-          class="btn btn-primary"
+          class="btn btn-block send-button tx-tfm mt-2"
         >
           <span class="text-uppercase">Go To Basket</span>
           <span class="icon">
             <i class="fas fa-lock"></i>
           </span>
         </a>
+                        </div>
+                    </form>    
+                {% if finaltotal %}          
+             
                 {% endif %}
                 </div>
-                
             </div>
+            
         </div>
     </div>
 </section>

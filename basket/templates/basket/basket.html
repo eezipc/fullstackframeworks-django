@@ -144,13 +144,13 @@
               <!-- Buttons to Checkout or Continue Shopping-->
               <tr>
                 <td colspan="5" class="text-right">
-                  <a href="{% url 'checkout' %}" class="btn btn-primary">
+                  <a href="{% url 'checkout' %}" class="btn btn-block send-button tx-tfm">
                     <span class="text-uppercase">Secure Checkout</span>
                     <span class="icon">
                       <i class="fas fa-lock"></i>
                     </span>
                   </a>
-                   <a href="{% url 'products' %}" class="btn btn-primary">
+                   <a href="{% url 'products' %}" class="btn btn-block send-button tx-tfm">
                     <span class="icon">
                       <i class="fas fa-chevron-left"></i>
                     </span>
@@ -164,7 +164,7 @@
           </div>
           {% else %}
           <p class="lead mb-5">Your bag is empty.</p>
-          <a href="{% url 'products' %}" class="btn btn-primary">
+          <a href="{% url 'products' %}" class="btn btn-block send-button tx-tfm">
             <span class="icon">
               <i class="fas fa-chevron-left"></i>
             </span>

@@ -4,8 +4,6 @@
  
 
 
-
-
 /*NAVBAR*/
 
 
@@ -2484,3 +2482,39 @@ li{
 small{
     cursor: pointer;
     }
+
+
+
+/*Back to Top*/
+#backtotop {
+  display: inline-block;
+  background-color: #f03c02;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 30px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s;
+  z-index: 1000;
+}
+
+#backtotop:hover {
+  cursor: pointer;
+  background-color: #fd5c28;
+}
+#backtotop:active {
+  background-color: #f03c02;
+}
+
+#backtotop::after {
+  content: "\f077";
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}

@@ -4,7 +4,7 @@
 <head>
   <title>Eezi Motorcycles  {% block extra_title %}{% endblock %}</title>
     <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <script src="https://kit.fontawesome.com/e6035afc3e.js" crossorigin="anonymous"></script>
   <!-- Required meta tags -->
  {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,7 +21,9 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     {% block corejs %}
     <!-- JS, Popper.js, and jQuery -->
+    
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
    
@@ -32,8 +34,10 @@
  <script src="https://js.stripe.com/v3/"></script>
 
     {% endblock %}
+    
  <!--MODAL POPUP SCRIPT-->
  <script>
+ 
 jQuery(document).ready(function(){
 
   // Start
@@ -303,7 +307,7 @@ jQuery(document).ready(function(){
 	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Subscribe" required>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e24a29d560caae60c6bf553b9_6dcbeacc29" tabindex="-1" value="" class="full text-center"></div>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn  btn-success"></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-block send-button tx-tfm"></div>
     
 </form>
 
@@ -349,15 +353,15 @@ jQuery(document).ready(function(){
 </footer>
 
 
-<!-- Back To Top Icon -->
-<a class="top-link hide" href="" id="js-top">
-  <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-  
-</a>    
+<!-- Back To Top Icon   -->
+
+<a id="backtotop"></a>
+
+<!-- End Back To Top Icon   -->
 
   {% block page_header %}
 
-  <!--USE THIS NAVBAR  https://codepen.io/simonswiss/pen/zrQNmK -->
+ 
  
 
     {% endblock %}
@@ -388,47 +392,30 @@ jQuery(document).ready(function(){
     
     {% endblock %}
 
- 
-<script type="text/javascript">
-		// Set a variable for our button element.
-const scrollToTopButton = document.getElementById('js-top');
+ <!-- Back to Top Script-->
 
-// Let's set up a function that shows our scroll-to-top button if we scroll beyond the height of the initial window.
-const scrollFunc = () => {
-  // Get the current scroll value
-  let y = window.scrollY;
+    <script>
+
+jQuery(document).ready(function() {
   
-  // If the scroll value is greater than the window height, let's add a class to the scroll-to-top button to show it!
-  if (y > 0) {
-    scrollToTopButton.className = "top-link show";
-  } else {
-    scrollToTopButton.className = "top-link hide";
-  }
-};
+  var btn = $('#backtotop');
 
-window.addEventListener("scroll", scrollFunc);
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
 
-const scrollToTop = () => {
-  // Let's set a variable for the number of pixels we are from the top of the document.
-  const c = document.documentElement.scrollTop || document.body.scrollTop;
-  
-  // If that number is greater than 0, we'll scroll back to 0, or the top of the document.
-  // We'll also animate that scroll with requestAnimationFrame:
-  // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
-  if (c > 0) {
-    window.requestAnimationFrame(scrollToTop);
-    // ScrollTo takes an x and a y coordinate.
-    // Increase the '10' value to get a smoother/slower scroll!
-    window.scrollTo(0, c - c / 10);
-  }
-};
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+  });
 
-// When the button is clicked, run our ScrolltoTop function above!
-scrollToTopButton.onclick = function(e) {
-  e.preventDefault();
-  scrollToTop();
-}
-	</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+});
+
+</script>
+
 </body>
 </html>

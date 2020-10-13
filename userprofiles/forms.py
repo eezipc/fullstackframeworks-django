@@ -22,7 +22,7 @@ class UserProfileForm(forms.ModelForm):
             'usercounty': 'County',
             'userpostalcode': 'Postal Code',
             'usercountry': 'Country',
-                        
+
         }
 
         self.fields['userphone'].widget.attrs['autofocus'] = True

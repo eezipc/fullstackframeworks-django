@@ -111,14 +111,13 @@ def checkout(request):
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
                     
-                    
                     'phone': profile.userphone,
-                    'country': profile.usercountry,
-                    'postalcode': profile.userpostalcode,
-                    'town': profile.usertown,
                     'address1': profile.useraddress1,
                     'address2': profile.useraddress2,
+                    'town': profile.usertown,
                     'county': profile.usercounty,
+                    'postalcode': profile.userpostalcode,
+                    'country': profile.usercountry,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
@@ -158,12 +157,12 @@ def confirmcheckout(request, orderid):
         if save_info:
             profile_data = {
                 'userphone': order.phone,
-                'usercountry': order.country,
-                'userpostalcode': order.postalcode,
-                'usertown': order.town,
                 'useraddress1': order.address1,
                 'useraddress2': order.address2,
+                'usertown': order.town,
                 'usercounty': order.county,
+                'userpostalcode': order.postalcode,
+                'usercountry': order.country,
             }
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
