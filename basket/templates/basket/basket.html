@@ -21,13 +21,14 @@
         <!-- Beginning of loop if items are in Shopping Basket-->
           {% if itemsinbasket %}
           <div class="rounded">
-            <table class="table table-sm table-borderless">
+            <table class="table table-sm table-borderless" >
               <thead class="text-black">
-                <tr>
-                  <th scope="col">Product Info</th>
-                  <th scope="col"></th>
+                <tr colspan="5">
+                  <th scope="col">Product</th>
+                  
                   <th scope="col">Price</th>
                   <th scope="col">Qty</th>
+                  
                   <th scope="col">Subtotal</th>
                 </tr>
               </thead>
@@ -46,12 +47,7 @@
                   />
                   {% endif %}
                 </td>
-                <td class="py-3">
-                  <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                  <p class="my-0 small text-muted">
-                    SKU: {{ item.product.sku|upper }}
-                  </p>
-                </td>
+                
                 <td class="py-3">
                   <p class="my-0">${{ item.product.price }}</p>
                 </td>
@@ -63,6 +59,15 @@
                     ${{ item.product.price | productsubtotal:item.amount }}
                   </p>
                 </td>
+              </tr>
+              <tr>
+              <td class="py-3">
+                  <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                  <p class="my-0 small text-muted">
+                    SKU: {{ item.product.sku|upper }}
+                  </p>
+                </td>
+                
               </tr>
               <tr>
                 <td colspan="3" class="text-right">
@@ -123,7 +128,7 @@
               {% endfor %}
               <!-- Total Cost of  Shopping Basket-->
               <tr>
-                <td colspan="5" class="pt-5 text-right">
+                <td colspan="4" class="pt-5 text-right">
                   <h6>
                     <strong>Bag Total: ${{ totalamount|floatformat:2 }}</strong>
                   </h6>
@@ -143,7 +148,7 @@
               </tr>
               <!-- Buttons to Checkout or Continue Shopping-->
               <tr>
-                <td colspan="5" class="text-right">
+                <td colspan="4" class="text-right">
                   <a href="{% url 'checkout' %}" class="btn btn-block send-button tx-tfm">
                     <span class="text-uppercase">Secure Checkout</span>
                     <span class="icon">
@@ -176,6 +181,7 @@
     </div>
   </div>
 </div>
+
 
 {% endblock %} 
 {% block postloadjs %} 

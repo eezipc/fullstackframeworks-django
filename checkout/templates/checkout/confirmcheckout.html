@@ -19,7 +19,7 @@
         <tr class="text-center">
           <th colspan="2">
             <p class="text-black">
-              <h4>Your order information is below. <br> A confirmation email will be sent
+              <h4>Your order information is below. <br> A confirmation email will be <br>sent
               to <strong>{{ order.emailaddress }}</strong></h4>.
             </p>
           </th>
@@ -30,9 +30,13 @@
           <td colspan="2"><h2>Order Info:</h2></td>
           
         </tr>
-        <tr>
-          <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Order Number:</p></td>
-          <td colspan="1">{{ order.orderid }}</td>
+        <tr class="text-center">
+          <td colspan="2"><p class=" mb-0 text-black font-weight-bold">Order Number:</p></td>
+          
+           
+        </tr>
+        <tr class="text-center">
+        <td colspan="2">{{ order.orderid }}</td>
         </tr>
         <tr>
           <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Order Date:</p></td>

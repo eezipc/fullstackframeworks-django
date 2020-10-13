@@ -1,5 +1,7 @@
+ 
+ 
  body {
-  background-color: ;
+  font-family: 'Roboto', sans-serif;
 }
  
 
@@ -112,11 +114,12 @@
 
 
 .message-container {
-    position: absolute;
-    top: 30%;
+     position: absolute;
+    top: 20%;
     right: 40%;
     z-index: 99999999999;
     background-color: #fff;
+   
 }
 
 
@@ -174,7 +177,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Muli", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -2517,4 +2520,12 @@ small{
   font-size: 2em;
   line-height: 50px;
   color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f03c02 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fd5c28 !important;
 }

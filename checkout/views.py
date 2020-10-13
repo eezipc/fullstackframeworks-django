@@ -169,10 +169,12 @@ def confirmcheckout(request, orderid):
                 user_profile_form.save()
 
 
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {orderid}. A confirmation \
+    messages.success(request, f'\
+        Order Successful. \
+        A confirmation \
         email will be sent to {order.emailaddress}.')
-
+    
+  
     if 'basket' in request.session:
         del request.session['basket']
 

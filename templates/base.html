@@ -3,6 +3,11 @@
 <html lang="en">
 <head>
   <title>Eezi Motorcycles  {% block extra_title %}{% endblock %}</title>
+
+  <!-- Google Fonts-->
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/e6035afc3e.js" crossorigin="anonymous"></script>
   <!-- Required meta tags -->
@@ -87,7 +92,7 @@ jQuery(document).ready(function(){
     </form>
         </li>
  <li class="nav-item">
-            <a class="nav-link {% if finaltotal %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'basketview' %}"><i class="fas fa-shopping-basket fa-2x"></i><p class="my-0">
+            <a class="nav-link {% if finaltotal %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'basketview' %}"><i class="fas fa-shopping-basket fa-2x pl-3"></i><p class="my-0 pl-3">
                                     {% if finaltotal %}
                                         ${{ finaltotal|floatformat:2 }}
                                     {% else %}
@@ -118,13 +123,12 @@ jQuery(document).ready(function(){
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="{% url 'index' %}">About</a></li>
-          <li><a href="{% url 'index' %}">Services</a></li>
-          <li><a href="{% url 'index' %}">Brands</a></li>
-          <li><a href="{% url 'index' %}">Testimonials</a></li>
-          
-          
-          <li class="drop-down"><a href="">Account</a>
+          <li><a href="{% url 'products' %}?category=parts">Parts</a></li>
+          <li><a href="{% url 'products' %}?category=gear">Gear</a></li>
+          <li><a href="{% url 'products' %}?category=accessories">Accessories</a></li>
+          <li><a href="{% url 'products' %}?category=motorcycles">Motorcycles</a></li>
+             
+         <!-- <li class="dropdown"><a href="">Account</a>
             <ul>
             {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
@@ -140,10 +144,12 @@ jQuery(document).ready(function(){
             <li><a href="{% url 'account_login' %}">Login</a></li>
             {% endif %}
             </ul>
-          </li>
+          </li> -->
           <li><a href="{% url 'contact' %}">Contact</a></li>
 
         </ul>
+        
+       
       </nav><!-- .nav-menu -->
 
     </div>
@@ -166,83 +172,6 @@ jQuery(document).ready(function(){
     
     
     {% endblock %}
-
-<div class="container">
-
-<nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5 navbarbackground">
-
-        <!-- Navbar brand -->
-        <span class="navbar-brand">Categories:</span>
-
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-
-          <!-- Links  -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'products' %}">All Products
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'products' %}?category=parts">Motorcycle Parts</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'products' %}?category=gear">Motorcycle Gear</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'products' %}?category=accessories">Motorcycle Accessories</a>
-            </li>
-           
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'products' %}?category=motorcycles">Motorcycles</a>
-            </li>
-
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'products' %}">Special Offers
-                
-              </a>
-            </li>
-
-        
-        <li class="nav-item">
-
-      
-</li>
-<li class="nav-item">
-<form method="GET" action="{% url 'products' %}">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search" name="q">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
-</li>
-          </ul>
-          <!-- Links -->
-
-
-
-
-        </div>
-        <!-- Collapsible content -->
-
-      </nav>
-      <!--/.Navbar-->
-
-</div>
-
-
- 
 
 <footer>
     <div class="footer" id="footer">

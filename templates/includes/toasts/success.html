@@ -1,3 +1,4 @@
+
 <!-- Flexbox container for aligning the toasts -->
 <div
   aria-live="polite"
@@ -39,19 +40,14 @@
           <div class="modal-body">
 
             <div class="row">
-              <div class="col-3">
-                <p></p>
-                <p class="text-center">
-                  <i class="fas fa-gift fa-4x"></i>
-                </p>
-              </div>
-
-              
+                          
                 <div class="modal-footer flex-center text-center">
-         
-<h2>
+         <p >
+                  <i class="fas fa-clipboard-check fa-4x"></i>
+                </p>
+<p>
                   {{ message }}
-                </h2>
+                </p>
               </div>
             </div>
           </div>
@@ -92,10 +88,17 @@
           </p></strong
         >
         {% if freedeliveryupdate > 0 %}
-        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-          Spend <strong>${{ freedeliveryupdate }}</strong> more to get free next
-          day delivery!
-        </p>
+
+          <a
+          href="{% url 'products' %}"
+          class="btn btn-block send-button tx-tfm"
+        >
+          <span class="text-uppercase">Spend <strong>${{ freedeliveryupdate }}</strong> more to get free next
+          day delivery!</span>
+          <span class="icon">
+            <i class="fas fa-lock"></i>
+          </span>
+        </a>
         
         {% endif %}
         <a
