@@ -65,18 +65,19 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">                    
-						<a href="{% url 'basketview' %}" class="btn btn-block send-button tx-tfm">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Adjust Basket</span>
-                                    </a>
 						<button id="submit-button" class="btn btn-block send-button tx-tfm">
 							<span class="text-uppercase">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
 							</span>
 						</button>
+                        <a href="{% url 'basketview' %}" class="btn btn-block send-button tx-tfm">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Adjust Basket</span>
+                                    </a>
+						
 						<p class="small text-danger my-0">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
@@ -164,6 +165,7 @@
                           <button
                             type="button"
                             class="decrement-qty btn btn-block send-button tx-tfm"
+                            style="height:33px;"
                             disabled="disabled"
                             data-item_id="{{ item.item_id }}"
                             id="decrement-qty_{{ item.item_id }}"
@@ -185,6 +187,7 @@
                           <button
                             type="button"
                             class="increment-qty btn btn-block send-button tx-tfm"
+                            style="height:33px;"
                             data-item_id="{{ item.item_id }}"
                             id="increment-qty_{{ item.item_id }}"
                           >
@@ -229,10 +232,10 @@
               <!-- Buttons to Checkout or Continue Shopping-->
               <tr>
                 <td colspan="3" class="text-right">
-                  <a href="{% url 'checkout' %}" class="btn btn-block send-button tx-tfm">
-                    <span class="text-uppercase">Secure Checkout</span>
+                  <a href="{% url 'basketview' %}" class="btn btn-block send-button tx-tfm">
+                    <span class="text-uppercase">Go To Basket</span>
                     <span class="icon">
-                      <i class="fas fa-lock"></i>
+                      <i class="fas fa-shopping-basket"></i>
                     </span>
                   </a>
                    <a href="{% url 'products' %}" class="btn btn-block send-button tx-tfm">
