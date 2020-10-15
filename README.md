@@ -24,19 +24,22 @@ The deployed link for the site is: <https://eezimotorcycles.herokuapp.com/>
 ## User Experience(UX)
 
 The site has multiple pages as outlined below:
-* about.html - This page provides some information about the company.
 * base.html - This page is the template for all other pages.
-* cart.html - This is where a user can view items in their basket.
+* basket.html - This is where a user can view items in their basket.
 * checkout.html - This is where a user can pay for their products and checkout.
-* checkout_success.html - This page provides a confirmation of a users booking.
-* confirm.html - This is the page a user sees when they create a booking.
+* confirmcheckout.html - This page provides a confirmation of a users booking.
 * contact.html - This is where a user can use a contact form to email the company.
+* edit_product.html - This is where an admin can edit an existing product.
 * index.html - The main page giving an outline of the purpose of the site.
-* login.html - This page allows a user to log in. (You don't need to create an account to order an item)
-* product.html - This page provides a view of all products in the site. The view can be filtered.
-* profile.html - This is where a user can view, edit or delete their profile.
-* register.html - This page provides an option to create a user account.
+* new_product.html - This is where an admin can add a new product to the store.
+* privacy.html - This is where a user can view the company privacy policy.
+* shopping.html - This is where a user can view various products in the store.
+* shopping_detail.html - This is where a user can view information about a single item.
+* success.html - This is where a user is diverted to when subscribing or contacting the company.
+* terms.html - This is where a user can view the company's terms and conditions.
 * update_products.html - This is where a manager can update existing products in the store.
+* userprofile.html - This is where a user can view, edit or delete their profile.
+* allauth - This is where a user can register, login and reset their password.
 
 
 
@@ -52,14 +55,13 @@ The site has multiple pages as outlined below:
 * As a customer, I want to see clearly see total prices in the basket before checkout.
 * As a customer, I want to see special offers.
 * As a customer, I want to search for products by filtering.
-* As a customer, I want to search for products by a single category or multiple categories.
 * As a customer, I want to be able to search for a product by name.
 * As a customer, I want to be able to choose the quantity of items to buy.
 * As a customer, I want to be able to add or remove items in the cart.
 * As a customer, I want to be able to feel secure when entering payment information.
 * As a customer, I want to receive an email when a profile is created.
 * As a customer, I want to receive an email when an order is created.
-* As a customer, I want to see clearly an order whether the order is successful or not.
+* As a customer, I want to clearly see an outcome whether the order is successful or not.
 
 * As a manager, I want to be able to create an account.
 * As a manager, I want to be able easily log in or out.
@@ -85,45 +87,50 @@ The design is simple with clear layouts providing easy access to order a product
 
 * There is a logo on the top left with link to home page. Visible on all screens.
 * Menu resizes for small devices. 
-* Menu buttons change depending on whether the user is logged in our out.
+* There is a search bar on this navbar.
+* There is a second navbar that hides when the user scrolls. The menu is hidden on mobile.
 
 ## Home page (index.html)
 
-* There is a left column the explains the company purpose
-* There is a right column that gives an option to book any of the services.
-* There are icons on the footer that change depending on whether the user is logged in or out.
+* There is a carousel with links to parts, gear and accessories.
+* There is a special offer carousel with links to various products.
+* There are more links underneath to parts, gear and accessories.
 
-## Daycare
+## Products (shopping.html)
 
-* The left column provides the user the option to book a Daycare service.
-* There is a right column that gives an option to book any of the services.
+* This is where a user can view all or filtered products.
 
-## Grooming
+## Product (shopping_detail.html)
 
-* The left column provides the user the option to book a Grooming service.
-* There is a right column that gives an option to book any of the services.
+* Here a user can view a single product in more detail.
+* A user can add the item or multiples of that item to the shopping basket.
 
-## Overnight
+## Basket (basket.html)
 
-* The left column provides the user the option to book a Sleepover service.
-* There is a right column that gives an option to book any of the services.
+* A user can see items in the basket (if any)
+* A user can continue to checkout or edit the basket or continue shopping.
 
-## Prices
+## Checkout (checkout.html)
 
-* This page has a carousel showing prices on all three products with links to the booking forms.
-* On smaller devices, the text on the carousel is hidden and a menu shows underneath the carousel.
-* There are links on the carousel to the relevant section of the menu.
+* A user can fill out their details and credit card info on the left side (desktop view)
+* A user can view items in the basket on the right side (desktop view)
+* A user can update quantity in the basket or delete items from the basket.
+* A user can also continue shopping.
+* A user also has an option to login or create an account to save the order details in their account.
+
+## Confirmcheckout (confirmcheckout.html)
+
+* A user can view details of their order
+* A user can also continue shopping.
 
 ## Register
 
 * The register page has a simple form for a user to create a user profile.
-* The side of the form gives the address and phone number of the company.
-* Contains a simple form with email address, password, first name, last name and pets name.
 
-## Profile
+## Userprofile
 
 * When a user creates a profile on the register page, they are automatically logged in and forwarded to the profile page.
-* The user can view, update or delete their profile.
+* The user can view or update their profile.
 * This page is only available to users who have created a profile and logged in.
 
 
@@ -135,51 +142,36 @@ The design is simple with clear layouts providing easy access to order a product
 ## Contact
 
 * The form has the address and phone number on the side.
-* The form contains three inputs; name, email and message.
-* The form uses email.js.
+* The form contains five inputs; first name, last name, email, reason and message.
+* The form uses formkeep.
 
-## About
-
-* This page has a carousel on the centre of the page with links to all three services.
-* There is also a section underneath with a little text with information on the company.
-
-## Confirm
+## Success (success.html)
 
 * This is a simple confirmation page that shows when a user books a service.
 
-## Editbooking
+## Edit Product (edit_product.html)
 
-* This page is similar to the booking pages except that the user can edit existing data.
-* Usually, this section is only available to registered users but I have allowed it to be accessed from the link at the bottom of the page.
+* This page allows an admin to edit a product.
+* This section is only available to registered admin users.
 
-## Editprofile
+## New Product (new_product.html)
 
-* This is similar to the editbooking page but in this case the user can edit their profile.
+* This page allows an admin to add a new product.
+* This section is only available to registered admin users.
 
-## Viewbooking
-
-* The page shows all bookings made on this site. Usually only registered users can see their own bookings but it is left open so it CRUD funtionality can be seen.
-
-## Viewprofile
-
-* This page allows the user view their profile and if required, the profile can be edited or deleted.
-
-## Viewprofilebooking
-
-* This page allows the user to view the profile associated with their registered account and if required, the profile can be edited or deleted.
 
 ## Footer
 
-* The footer contains links to about, contact, bookings, register and login.
+* The footer contains links to privacy, terms, contact, subscribe, register and login.
 * The footer also contains social media icon links for Facebook & Twitter.
-* The icons change depening on whether a user is logged in.
-* When not logged in, the footer shows the login and register icons. When logged in, the footer shows the profile and logout icons.
+* The links change depending on whether a user is logged in.
+* When not logged in, the footer shows the login and register links. When logged in, the footer shows the profile and logout links.
 * The footer also contains a copyright notice.
 
 ## Future features
 
-* I would like to add a feature to send an email to the user when a booking is made. However, this was not requried for this project.
-* I would also create a page to show all user profiles and lock both pages to admin access only.
+* I would have liked to add an Amazon or Ebay api to the site.
+* I would also have liked to add multiple images for each product.
 
 ## Tools
 
@@ -211,7 +203,7 @@ The design is simple with clear layouts providing easy access to order a product
 * Site was tested with https://validator.w3.org
 * Site was tested by https://jigsaw.w3.org/css-validator/
 * Python code was checked by http://pep8online.com/
-* There are a few errors but the code seems fine. (for example one section says it cannot find the bootstrap.min.css file but the link works.)
+* There are a few errors but the code seems fine. 
 
 ## Deployment
 
@@ -249,19 +241,18 @@ SECRET_KEY 	<your_secret_key>
 11: The site is now successfully deployed.
 
 ## Credits
-* Theme was taken from https://startbootstrap.com/themes/stylish-portfolio/
-* Got inspiration from this video: https://www.youtube.com/watch?v=vVx1737auSE
-* Got inspiration from this video: https://www.youtube.com/watch?v=3DMMPA3uxBo
-* Got inspiration from this video: https://www.youtube.com/watch?v=3ZS7LEH_XBg
-* I used bits of code from this site and edited it for my site. Mainly on how to register new users and update profiles. All code is on run.py. https://github.com/andreeaiosip/click-a-book
+* 
 ## Media
 
-All images are provided by www.unsplash.com and www.pexels.com
+* All images are provided by www.unsplash.com and www.pexels.com 
+* Alot of the product images and text was taken from https://www.xlmoto.ie
 
 ## Code
 
-* Most of the code was learnt from Youtube, Udemy, Le Wagon because the Code Institute videos were full of errors.
+* Most of the code was learnt from Youtube, Udemy and Le Wagon.
+* The Code Institute lessons on Django were excellent. Although they had set a low standard.
+* All credit for the videos must go to czk8780: https://github.com/ckz8780
 * Got alot of help from stackexchange https://stackexchange.com/
-* Back to top button came from here https://getflywheel.com/layout/sticky-back-to-top-button-tutorial/
-
-
+* Some of the code for the back to top button came from here 
+* Alot of inspiration from Bootstrap: https://www.getbootstrap.com
+* Alot of help from W3Schools: https://www.W3Schools.com
