@@ -1,17 +1,17 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
-
 from products.models import Product
 
-# Create your views here.
+# Eezimotorcycles Views.
 """ Show the index page """
+
+
 def basketview(request):
     return render(request, 'basket/basket.html')
 
 
-
 def updatebasketview(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
+    """ Add a quantity of the specified product to the shopping basket """
     product = Product.objects.get(pk=item_id)
     amount = int(request.POST.get('amount'))
     redirectpage = request.POST.get('redirectpage')
@@ -27,6 +27,7 @@ def updatebasketview(request, item_id):
     request.session['basket'] = basket
     print(request.session['basket'])
     return redirect(redirectpage)
+
 
 def changebasketview(request, item_id):
 

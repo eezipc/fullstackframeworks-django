@@ -3,9 +3,11 @@ from .models import Userorders, SingleOrder
 
 # Register your models here.
 
+
 class OrderSingleItemAdministration(admin.TabularInline):
     model = SingleOrder
     readonly_fields = ('singleordertotal',)
+
 
 class OrderAdministration(admin.ModelAdmin):
 
@@ -17,10 +19,10 @@ class OrderAdministration(admin.ModelAdmin):
                 'phone', 'address1', 'address2', 'town', 'county',
                 'postalcode', 'country', 'orderdate', 'delivery',
                 'total', 'finaltotal', 'originalbasket', 'stripepid',)
-            
+
     order_display = ('orderid', 'orderdate', 'firstname', 'lastname', 'total', 'delivery', 'finaltotal',)
 
     ordering = ('-orderdate',)
 
+
 admin.site.register(Userorders, OrderAdministration)
-    

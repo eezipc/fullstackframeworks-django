@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
-   
 {% endblock %}
-
 {% block content %}
 
 <div class="container">
@@ -23,7 +20,7 @@
   <div class="row">
     <div class="col-md-8 mx-auto">
       <div class="myform form">
-        
+        <!-- New Products Form-->
 <form method="POST" action="{% url 'new_product' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}
@@ -32,14 +29,8 @@
                         <a class="btn btn-block send-button tx-tfm" href="{% url 'products' %}">Cancel</a>
                     </div>
                 </form>
-
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-   
 {% endblock %}

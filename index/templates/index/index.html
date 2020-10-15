@@ -1,13 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
-
-
- {% block page_header %}
- 
-  
-  {% endblock %}
-
+{% block page_header %}
+{% endblock %}
 {% block index %}
 <!--MODAL POPUP-->
 
@@ -16,63 +10,36 @@
          <div class="modal-content">
           <!--Header-->
           <div class="modal-header">
-            <p class="heading">Free Shipping Offer
+            <p class="heading">Welcome to Eezi Motorcycles
               <strong></strong>
             </p>
-
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true" class="white-text">&times;</span>
             </button>
           </div>
-
           <!--Body-->
-          <div class="modal-body">
-
-            <div class="row">
-              <div class="col-3">
-                <p></p>
-                <p class="text-center">
-                  <i class="fas fa-gift fa-4x"></i>
-                </p>
+          
+          <!--Footer-->
+          <div class="modal-footer flex-center">
+          <div class="modal-footer flex-center text-center">
+                  <img class="img-fluid" alt="Eezi Motorcycles" width="150" height="150" src="../media/bmwf650.jpg">
               </div>
-
-              <div class="modal-footer flex-center text-center">
-                
-               
+                <div class="modal-footer d-flex justify-content-center text-center">
                 <h2>
-                  WOW! 
-                </h2>
-
-              </div>
-                <div class="modal-footer flex-center text-center">
-                
-               
-               
-<h2>
                   Free Shipping When You Spend $50
                 </h2>
               </div>
-            </div>
-          </div>
-
-          <!--Footer-->
-          <div class="modal-footer flex-center">
-            <a href="{% url 'products' %}" class="btn btn-danger">Start Shopping Now
-              <i class="far fa-gem ml-1 white-text"></i>
-            </a>
-            <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">No, thanks</a>
+            <a href="/products/" class="btn btn-block send-button tx-tfm">Start Shopping</a>
+            <a href="" class="btn btn-block send-button tx-tfm" data-dismiss="modal">No, thanks</a>
           </div>
         </div>
         <!--/.Content-->
       </div>
     </div>
 
-
-
-<main role="main">
-
+<main>
+<!-- Beginning of Carousel-->
 <section>
-
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
       <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -106,7 +73,6 @@
          
     <h2>Motorcycle Gear</h2>
     <p><a href="/products/?category=gear"> Click Here To View All Of Our Motorcycle Gear</a></p>
-         
   </div>
     </div>
   </div>
@@ -120,7 +86,7 @@
   </a>
       </div>
 </section>
-
+<!-- Free Delivery Banner-->
  <section class="subscription bg-white pr-5">
     <div class="container">
         <div class="row">
@@ -131,29 +97,23 @@
                 <h4 class=" my-1">Free delivery on orders over ${{ freedelivery }}!</h4>                
             </div>            
         </div>
-                    
-             
-                </div>
-                
+                </div>  
             </div>
         </div>
     </div>
 </section>
-
+<!-- Special Offers Section-->
 <section class="pt-5 pb-5">
   <div class="container">
     <div class="row">
         <div class="col-6">
             <h3 class="mb-3">Special Offers </h3>
         </div>
-       
         <div class="col-12">
             <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row">
-
                             <div class="col-md-4 mb-3">
                                 <div class="card">
                                     <img class="img-fluid" alt="100%x280" width="250" height="250" src="../media/engineoil.jpg">
@@ -185,12 +145,10 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="row">
-
                              <div class="col-md-4 mb-3">
                                 <div class="card">
                                    <img class="img-fluid" alt="100%x280"  width="250" height="250" src="../media/knfilter.jpg">
@@ -226,7 +184,6 @@
                     </div>
                     <div class="carousel-item">
                         <div class="row">
-
                             <div class="col-md-4 mb-3">
                                 <div class="card">
                                    <img class="img-fluid" alt="100%x280"  width="250" height="250" src="../media/brakefluid.jpg">
@@ -235,7 +192,6 @@
                                         <p class="card-text">The jacket is equipped with wind and water resistant membranes. </p>
 <a href="/products/48" class="btn btn-block send-button tx-tfm">Find Out More</a>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -272,18 +228,13 @@
                 <i class="fa fa-arrow-right"></i>
             </a>
         </div>
-        
     </div>
 </div>
 </section>
 
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+      <!-- Marketing Section -->
 
       <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
         <div class="row">
           <div class="col-lg-4">
             <img class="rounded-circle" src="{{'media/bikeimages/frontbike.jpg'}}" alt="Motorcyle Accessories" width="140" height="140">
@@ -306,20 +257,9 @@
         </div><!-- /.row -->
 
 {% block subscribe %}
-    
-    
-
 {% endblock %}
-
       </div><!-- /.container -->
-
-
-    
     </main>
-
-   
-
 {% endblock %}
-
 {% block content %}
 {% endblock %}

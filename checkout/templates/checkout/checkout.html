@@ -1,23 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 {% load basketupdatetool %}
-
-
-
- {% block page_header %}
- 
-  
-  {% endblock %}
-
+{% block page_header %}
+{% endblock %}
 {% block content %}
-
+<!-- Checkout Form-->
 <div class="row p-5">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Enter Your Details Below</h5>
         <p class="card-text">
-        
         <form action="{% url 'checkout' %}" method="POST" id="stripepayment">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -27,8 +20,7 @@
                         {{ order_form.emailaddress | as_crispy_field }}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
-                        
+                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>                    
                         {{ order_form.phone | as_crispy_field }}
                         {{ order_form.address1 | as_crispy_field }}
                         {{ order_form.address2 | as_crispy_field }}
@@ -36,7 +28,6 @@
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.postalcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
-
                          <div class="form-check form-check-inline float-right mr-0">
 							{% if user.is_authenticated %}
 								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
@@ -48,22 +39,17 @@
                                 </label>
 							{% endif %}
 						</div>
-                       
-
-
                     </fieldset>
                     <fieldset class="p-0 ">
                     <div class="d-flex justify-content-center">  Payment </div>
                         <legend class="fieldset-label small text-black p-0 w-auto "></legend>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3" id="card-element"></div>
-
                         <!-- Used to display form errors -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret" >
                     </fieldset>
-
                     <div class="submit-button text-right mt-5 mb-2">                    
 						<button id="submit-button" class="btn btn-block send-button tx-tfm">
 							<span class="text-uppercase">Complete Order</span>
@@ -71,13 +57,6 @@
 								<i class="fas fa-lock"></i>
 							</span>
 						</button>
-                        <a href="{% url 'basketview' %}" class="btn btn-block send-button tx-tfm">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Adjust Basket</span>
-                                    </a>
-						
 						<p class="small text-danger my-0">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
@@ -86,9 +65,7 @@
 						</p>
 					</div>
                 </form>
-        
         </p>
-        
       </div>
     </div>
   </div>
@@ -135,11 +112,6 @@
                 <td class="py-3 w-25">
                   <p class="my-0">{{ item.amount }}</p>
                 </td>
-                <!--<td class="py-3">
-                  <p class="my-0">
-                    ${{ item.product.price | productsubtotal:item.amount }}
-                  </p>
-                </td>-->
               </tr>
               <tr>
               <td class="py-3">
@@ -244,14 +216,13 @@
                     </span>
                     <span class="text-uppercase">Keep Shopping</span>
                   </a>
-                  
-                  
                 </td>
               </tr>
             </table>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">Your bag is empty.</p>
+                <!-- If Basket Is Empty-->
+                    <p class="lead mb-5">Your basket is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-block send-button tx-tfm">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
@@ -259,29 +230,21 @@
                         <span class="text-uppercase">Keep Shopping</span>
                     </a>
                 {% endif %}
-
             </div>
         </div>
-        
         </p>
-      
       </div>
     </div>
   </div>
 </div>
-
-
 {% endblock %}
-
-
 {% block postloadjs %}
 {{ block.super }}
-
 {{ stripepublickey|json_script:"id_stripepublickey" }}
 {{ client_secret|json_script:"id_client_secret" }}
 
 
-
+<!-- Stripe Javascript-->
 <script type="text/javascript">
    /*
     Core logic/payment flow for this comes from here:
@@ -404,7 +367,7 @@ form.addEventListener('submit', function(ev) {
 
 {% include 'products/includes/itemamountscript.html' %}
 
-<script type="text/javascript">
+<script>
     // Update quantity on click
     $('.update-link').click(function(e) {
         var form = $(this).prev('.update-form');
@@ -425,6 +388,5 @@ form.addEventListener('submit', function(ev) {
          });
     })
 </script>
-
 
 {% endblock %}

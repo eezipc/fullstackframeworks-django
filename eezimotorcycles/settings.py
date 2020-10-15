@@ -74,7 +74,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'basket.orders.basketorders',
@@ -174,4 +174,3 @@ STRIPEPUBLICKEY = os.getenv('STRIPEPUBLICKEY', '')
 STRIPESECRETKEY = os.getenv('STRIPESECRETKEY', '')
 STRIPEWEBHOOKSECRETKEY = os.getenv('STRIPEWEBHOOKSECRETKEY', '')
 DEFAULT_FROM_EMAIL = 'eezi@motorcycles.com'
-

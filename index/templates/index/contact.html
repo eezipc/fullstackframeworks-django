@@ -1,39 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
-
-
-
- {% block page_header %}
- 
-  
-  {% endblock %}
-
+{% block page_header %}  
+{% endblock %}
 {% block index %}
-
-
-<main role="main">
-
-
-
+<!-- Formkeep Contact Form-->
+<main>
 <div class="container justify-content-center navbarbackground">
 <section class="mb-4 ">
-      
       <div class="row">
         <div class="col-md-9 mb-md-0 mb-5 p-5">
-        
          <div class="container marketing">
         <p class="text-center w-responsive mx-auto mb-5"></p>
-      
       <h2>Do you have any questions?</h2>
-      
         </div>
 <div id="formkeep-embed" data-formkeep-url="https://formkeep.com/p/8b70922c6087a54b3ba8311c02ae840e?embedded=1"></div>
 <!-- Email Contact Form Scripts -->
-
-<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
-<script type="text/javascript" src="https://formkeep-production-herokuapp-com.global.ssl.fastly.net/formkeep-embed.js"></script>
-
+<script  src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script  src="https://formkeep-production-herokuapp-com.global.ssl.fastly.net/formkeep-embed.js"></script>
 <!-- Get notified when the form is submitted, add your own code below: -->
+
+<!-- Formkeep Script-->
 <script>
 const formkeepEmbed = document.querySelector('#formkeep-embed')
 
@@ -46,36 +32,14 @@ formkeepEmbed.addEventListener('formkeep-embed:submitted', _event => {
 })
 </script>
 
-
-
-<!-- Contact Form Section -->
-
- 
-          
-          
-        </div>
-       
-        
+</div>  
       </div>
     </section>
 </div>
 
-
-
-
-
-
-
- 
-
-
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+      <!-- Continue Shopping -->
 
       <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
         <div class="row">
           <div class="col-lg-4">
             <img class="rounded-circle" src="{{'media/bikeimages/frontbike.jpg'}}" alt="Motorcyle Accessories" width="140" height="140">
@@ -98,21 +62,12 @@ formkeepEmbed.addEventListener('formkeep-embed:submitted', _event => {
         </div><!-- /.row -->
 
 {% block subscribe %}
-    
-    
-
 {% endblock %}
 
-      </div><!-- /.container -->
+    </div><!-- /.container -->
 
-
-    
     </main>
-
-   
-
 {% endblock %}
-
 {% block content %}
 {% endblock %}
 

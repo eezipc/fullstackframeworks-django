@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def basketorders(request):
 
     itemsinbasket = []
@@ -26,9 +27,9 @@ def basketorders(request):
     else:
         finaldelivery = 0
         freedeliveryupdate = 0
-    
+
     finaltotal = finaldelivery + totalamount
-    
+
     context = {
         'itemsinbasket': itemsinbasket,
         'totalamount': totalamount,
@@ -40,4 +41,3 @@ def basketorders(request):
     }
 
     return context
-    

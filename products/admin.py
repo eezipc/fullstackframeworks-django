@@ -14,18 +14,20 @@ class ProductAdmin(admin.ModelAdmin):
         'rating',
         'image',
         'description',
-        
+
     )
 
     ordering = ('sku',)
 
 # Add fields to admin page on website.
+
+
 class CategoryAdmin(admin.ModelAdmin):
+
     list_display = (
         'friendly_name',
         'name',
     )
-
 
 
 admin.site.register(Product, ProductAdmin)

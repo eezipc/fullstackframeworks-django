@@ -70,7 +70,7 @@ class SingleOrder(models.Model):
     order = models.ForeignKey(Userorders, null=False, blank=False, on_delete=models.CASCADE, related_name='singleorderitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     amount = models.IntegerField(null=False, blank=False, default=0)
-    singleordertotal = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    singleordertotal = models.DecimalField(max_digits=100, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
         """

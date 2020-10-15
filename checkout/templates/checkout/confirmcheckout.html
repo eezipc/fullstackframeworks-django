@@ -3,8 +3,7 @@
 {% block page_header %} 
 {% endblock %} 
 {% block content %}
-
-
+<!-- Order Confirmation Layout-->
 <div class="container">
   <div class="row">
     <table class="table table-hover">
@@ -27,13 +26,10 @@
       </thead>
       <tbody>
         <tr class="text-center">
-          <td colspan="2"><h2>Order Info:</h2></td>
-          
+          <td colspan="2"><h2>Order Info:</h2></td>      
         </tr>
         <tr class="text-center">
           <td colspan="2"><p class=" mb-0 text-black font-weight-bold">Order Number:</p></td>
-          
-           
         </tr>
         <tr class="text-center">
         <td colspan="2">{{ order.orderid }}</td>
@@ -42,58 +38,44 @@
           <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Order Date:</p></td>
           <td>{{ order.orderdate }}</td>
         </tr>
-
         <tr>
           <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Order Email:</p></td>
           <td>{{ order.emailaddress }}</td>
         </tr>
-
         <tr class="text-center">
           <td colspan="2" ><h2>Order Details:</h2></td>
-          
         </tr>
-
         <tr>
           <td colspan="1">
             {% for item in order.singleorderitems.all %}
-
             <p class=" mb-0 text-black font-weight-bold">
               {{ item.product.name }}
             </p>
-
             {% endfor %}
           </td>
           <td>
             {% for item in order.singleorderitems.all %}
-
             <p class="">
               {{ item.amount }} @ ${{ item.product.price }} each
             </p>
-
             {% endfor %}
           </td>
         </tr>
-
         <tr class="text-center">
           <td colspan="2"><h2>Delivering To:</h2></td>
-          
         </tr>
-
         <tr>
           <td colspan="1"><p class=" mb-0 text-black font-weight-bold">First Name</p></td>
           <td>{{ order.firstname }}</td>
         </tr>
-
         <tr>
           <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Last Name</p></td>
           <td>{{ order.lastname }}</td>
         </tr>
-
         <tr>
           <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Address Line 1</p></td>
           <td>{{ order.address1 }}</td>
         </tr>
-
         <tr>
           {% if order.address2 %}
           <td colspan="1"><p class=" mb-0 text-black font-weight-bold">Address Line 2</p></td>
@@ -138,9 +120,8 @@
     </table>
   </div>
 </div>
-
+<!-- Options to continue shopping-->
 <div class="container marketing">
-  <!-- Three columns of text below the carousel -->
   <div class="row">
     <div class="col-lg-4">
       <img
@@ -202,5 +183,4 @@
   </div>
   <!-- /.row -->
 </div>
-
 {% endblock %}

@@ -1,14 +1,8 @@
- 
- 
- body {
+body {
   font-family: 'Roboto', sans-serif;
 }
  
-
-
 /*NAVBAR*/
-
-
 .navbar {
     background: #3a3f43;
     transform: translateZ(0) translateY(0);
@@ -20,9 +14,6 @@
 .logo-font {
     color: white;
 }
-
-
-
 
 .intro-copy {
   padding: 1em;
@@ -110,7 +101,7 @@
 
 
 
-/* CAROUSEL*/
+/* MESSAGES*/
 
 
 .message-container {
@@ -163,10 +154,7 @@ input:focus,
   -o-background-size: cover;
 }
 
-
-
-
-
+/* Text and Images layout */
 a {
   color: #f03c02;
 }
@@ -180,35 +168,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif;
 }
 
-/*--------------------------------------------------------------
-# Back to top button
---------------------------------------------------------------*/
-.back-to-top {
-  position: fixed;
-  display: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 3px;
-  right: 15px;
-  bottom: 15px;
-  background: #f03c02;
-  color: #fff;
-  transition: display 0.5s ease-in-out;
-  z-index: 99999;
-}
-
-.back-to-top i {
-  font-size: 24px;
-  position: absolute;
-  top: 8px;
-  left: 8px;
-}
-
-.back-to-top:hover {
-  color: #fff;
-  background: #fd5c28;
-  transition: 0.3s ease-in-out;
-}
 
 /*--------------------------------------------------------------
 # Disable AOS delay on mobile
@@ -219,47 +178,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Top Bar
---------------------------------------------------------------*/
-#topbar {
-  background: #f8f6f5;
-  padding: 10px 0;
-  font-size: 14px;
-}
-
-#topbar .contact-info a {
-  line-height: 1;
-  color: #4d4643;
-  transition: 0.3s;
-}
-
-#topbar .contact-info a:hover {
-  color: #f03c02;
-}
-
-#topbar .contact-info i {
-  color: #f03c02;
-  padding: 4px;
-}
-
-#topbar .contact-info .icofont-phone {
-  padding-left: 20px;
-  margin-left: 20px;
-  border-left: 1px solid #e9e9e9;
-}
-
-#topbar .social-links a {
-  color: #836a61;
-  padding: 4px 0 4px 20px;
-  display: inline-block;
-  line-height: 1px;
-  transition: 0.3s;
-}
-
-#topbar .social-links a:hover {
-  color: #f03c02;
-}
 
 /*--------------------------------------------------------------
 # Header
@@ -522,7 +440,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------------------------------------------------
 # Hero Section
---------------------------------------------------------------*/
+
 #hero {
   width: 100%;
   height: 70vh;
@@ -660,7 +578,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 120vh;
   }
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -696,7 +614,7 @@ section {
 
 /*--------------------------------------------------------------
 # Breadcrumbs
---------------------------------------------------------------*/
+
 .breadcrumbs {
   padding: 15px 0;
   background: #2b2320;
@@ -744,10 +662,10 @@ section {
     display: inline-block;
   }
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Cta
---------------------------------------------------------------*/
+
 .cta {
   background: #f3f1f0;
   padding: 60px 0;
@@ -803,10 +721,10 @@ section {
     justify-content: flex-end;
   }
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Services
---------------------------------------------------------------*/
+
 .services .icon-box {
   padding: 50px 20px;
   margin-top: 35px;
@@ -868,10 +786,10 @@ section {
   line-height: 24px;
   font-size: 14px;
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Portfolio
---------------------------------------------------------------*/
+
 .portfolio #portfolio-flters {
   padding: 0;
   margin: 0 auto 50px auto;
@@ -972,10 +890,10 @@ section {
   opacity: 1;
   bottom: 20px;
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Clients
---------------------------------------------------------------*/
+
 .clients .clients-wrap {
   border-top: 1px solid #f1eeed;
   border-left: 1px solid #f1eeed;
@@ -1005,10 +923,10 @@ section {
   filter: none;
   transform: scale(1.1);
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # About Us
---------------------------------------------------------------*/
+
 .about-us .content {
   padding: 30px 0;
 }
@@ -1064,10 +982,10 @@ section {
     max-width: 100%;
   }
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Our Team
---------------------------------------------------------------*/
+/
 .team .member {
   margin-bottom: 20px;
   overflow: hidden;
@@ -1139,10 +1057,10 @@ section {
 .team .member:hover .social {
   opacity: 1;
 }
-
+--------------------------------------------------------------*
 /*--------------------------------------------------------------
 # Our Skills
---------------------------------------------------------------*/
+
 .skills .progress {
   height: 50px;
   display: block;
@@ -1174,10 +1092,10 @@ section {
   transition: .9s;
   background-color: #f03c02;
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Features
---------------------------------------------------------------*/
+
 .features {
   padding-top: 0;
 }
@@ -1234,10 +1152,10 @@ section {
     opacity: 1;
   }
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Pricing
---------------------------------------------------------------*/
+
 .pricing .box {
   padding: 20px;
   background: #f3f1f0;
@@ -1342,10 +1260,10 @@ section {
   background: #fff;
   border-color: #fff;
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Cta Pricing
---------------------------------------------------------------*/
+
 .cta-pricing {
   background: #f3f1f0;
   color: #65534c;
@@ -1377,10 +1295,10 @@ section {
   background: #f03c02;
   color: #fff;
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Testimonials
---------------------------------------------------------------*/
+
 .testimonials .testimonial-item {
   box-sizing: content-box;
   padding: 40px;
@@ -1433,14 +1351,14 @@ section {
   margin: 15px 0 0 0;
   padding: 0;
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Portfolio Details
---------------------------------------------------------------*/
+
 .portfolio-details {
   padding: 40px;
 }
@@ -1495,10 +1413,10 @@ section {
     padding-top: 20px;
   }
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Blog
---------------------------------------------------------------*/
+
 .blog {
   padding: 40px 0 20px 0;
 }
@@ -2022,25 +1940,21 @@ section {
   color: #c8bab5;
   font-size: 14px;
 }
-
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Footer
-
 #footer {
   color: #b4aca8;
   font-size: 14px;
   background: #14100f;
 }
-
 #footer .footer-top {
   padding: 60px 0 30px 0;
   background: black;
 }
-
 #footer .footer-top .footer-contact {
   margin-bottom: 30px;
 }
-
 #footer .footer-top .footer-contact h3 {
   font-size: 22px;
   margin: 0 0 10px 0;
@@ -2051,7 +1965,6 @@ section {
   text-transform: uppercase;
   color: #fff;
 }
-
 #footer .footer-top .footer-contact p {
   font-size: 14px;
   line-height: 24px;
@@ -2059,7 +1972,6 @@ section {
   font-family: "Muli", sans-serif;
   color: #b4aca8;
 }
-
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
@@ -2067,50 +1979,41 @@ section {
   position: relative;
   padding-bottom: 12px;
 }
-
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
 }
-
 #footer .footer-top .footer-links ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
   color: #fd6f41;
   font-size: 18px;
   line-height: 1;
 }
-
 #footer .footer-top .footer-links ul li {
   padding: 10px 0;
   display: flex;
   align-items: center;
 }
-
 #footer .footer-top .footer-links ul li:first-child {
   padding-top: 0;
 }
-
 #footer .footer-top .footer-links ul a {
   color: #b4aca8;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
-
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
   color: #fd6f41;
 }
-
 #footer .footer-newsletter {
   font-size: 15px;
 }
-
 #footer .footer-newsletter h4 {
   font-size: 16px;
   font-weight: bold;
@@ -2118,7 +2021,6 @@ section {
   position: relative;
   padding-bottom: 12px;
 }
-
 #footer .footer-newsletter form {
   margin-top: 30px;
   background: #fff;
@@ -2127,13 +2029,11 @@ section {
   border-radius: 4px 0 0 4px;
   text-align: left;
 }
-
 #footer .footer-newsletter form input[type="email"] {
   border: 0;
   padding: 4px 8px;
   width: calc(100% - 100px);
 }
-
 #footer .footer-newsletter form input[type="submit"] {
   position: absolute;
   top: 0;
@@ -2149,17 +2049,14 @@ section {
   border-radius: 0 4px 4px 0;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
-
 #footer .footer-newsletter form input[type="submit"]:hover {
   background: #fd5c28;
 }
-
 #footer .credits {
   padding-top: 5px;
   font-size: 13px;
   color: #b4aca8;
 }
-
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
@@ -2174,7 +2071,6 @@ section {
   height: 36px;
   transition: 0.3s;
 }
-
 #footer .social-links a:hover {
   background: #fd5c28;
   color: #fff;

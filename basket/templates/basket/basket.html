@@ -46,8 +46,7 @@
                     src="{{ MEDIA_URL }}noimage.png"
                   />
                   {% endif %}
-                </td>
-                
+                </td>             
                 <td class="py-3">
                   <p class="my-0">${{ item.product.price }}</p>
                 </td>
@@ -163,14 +162,13 @@
                     </span>
                     <span class="text-uppercase">Keep Shopping</span>
                   </a>
-                  
-                  
                 </td>
               </tr>
             </table>
           </div>
           {% else %}
-          <p class="lead mb-5">Your bag is empty.</p>
+          <!-- If the shopping basket is empty-->
+          <p class="lead mb-5">Your basket is empty.</p>
           <a href="{% url 'products' %}" class="btn btn-block send-button tx-tfm">
             <span class="icon">
               <i class="fas fa-chevron-left"></i>
@@ -183,14 +181,13 @@
     </div>
   </div>
 </div>
-
-
 {% endblock %} 
 {% block postloadjs %} 
 {{ block.super }} 
 {% include 'products/includes/itemamountscript.html' %}
 
-<script type="text/javascript">
+<!-- Script for buttons to update basket -->
+<script>
   // Update quantity on click
   $(".update-link").click(function (e) {
     var form = $(this).prev(".update-form");
