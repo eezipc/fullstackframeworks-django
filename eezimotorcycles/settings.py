@@ -16,14 +16,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Turn this off for AWS
-# SECRET_KEY = '*5j$57vn0)!yf(0v$z9o@^$a#o&^#^6&vo*k5a37t5zq-1c(%w'
+#SECRET_KEY = '*5j$57vn0)!yf(0v$z9o@^$a#o&^#^6&vo*k5a37t5zq-1c(%w'
 
 # Turn this on for AWS
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
+#DEBUG = True
 
-ALLOWED_HOSTS = ['eezimotorcycles.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['eezimotorcycles.herokuapp.com', 
+                    'localhost',
+                    '127.0.0.1',
+                    '8000-eb0d3daa-c9c8-4d3a-b83e-68f5bb862722.ws-eu01.gitpod.io/']
 
 
 # Application definition
@@ -210,7 +214,7 @@ DEFAULT_FROM_EMAIL = 'eezi@motorcycles.com'
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+    DEFAULT_FROM_EMAIL = 'info@eezimotorcycles.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True

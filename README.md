@@ -1,4 +1,6 @@
 
+![Eezi Motorcycles](static/media/logo/cover.png "Eezi Motorcycles")
+
 ## Eezi Motorcycles
 * Eezi Motorcycles is a site created for Code Institute Milestone 4.
 * The main purpose of the site is to provide parts and accessories for a Motorcycle.
@@ -16,6 +18,7 @@ CSS
 jquery
 bootstrap
 Postgrl
+AWS
 
 ## Deployment
 The deployed link for the site is: <https://eezimotorcycles.herokuapp.com/>
@@ -142,8 +145,8 @@ The design is simple with clear layouts providing easy access to order a product
 ## Contact
 
 * The form has the address and phone number on the side.
-* The form contains five inputs; first name, last name, email, reason and message.
-* The form uses formkeep.
+* The form contains three inputs; name, email and message.
+* The form uses django forms and sends emails to a gmail account.
 
 ## Success (success.html)
 
@@ -185,8 +188,7 @@ The design is simple with clear layouts providing easy access to order a product
 
 * Bootstrap https://getbootstrap.com/ - for layout and responsive design
 * Font Awesome - https://fontawesome.com - Icons
-* emailJs - emailjs.com - App for the contact form.
-* Datepicker - https://forum.webflow.com/t/simple-datepicker-100-working/73398 
+* 
 
 ## Languages
 
@@ -209,39 +211,86 @@ The design is simple with clear layouts providing easy access to order a product
 
 This application can run on Gitpod or Heroku
 
-## Deploy to Heroku
+## Remote
+1: To push the code to a remote GitHub repository, follow the steps below.
 
-1:  Create a requirements.txt file using the terminal command pip freeze > requirements.txt.
+2: Next, link your remote repository. For Github, open your Github account and select Repositories. At the top right of the screen select New.
 
-2:   Create a Procfile with the terminal command echo web: python app.py > Procfile.
+3: Give your repository a name.
 
-3:  Type git add and git commit the new requirements and Procfile .
+4: You can now choose a few different ways to link the local and remote repositories. The one we want here is "…or push an existing repository from the command line". Copy the code this option gives you and paste it into your command line. It should look something like this:
 
-4:  Create a new app on the Heroku website by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+5: git remote add origin https://github.com/eezipc/fullstackframeworks-django
+6: git push -u origin master
 
-5:  From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+7: Now you can push any changes from the command line with:
 
-6:  Confirm the linking of the heroku app to the correct GitHub repository.
+8: git push
+9: If you check the status of of your local repository using 'git status' it should give you something like this:
 
-7:   In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+10: On branch master
+11: Your branch is up-to-date with 'origin/master'.
+12: nothing to commit, working tree clean
 
-8:  Set the following config vars:
+13: Finally, to deploy the code live with Github Pages, open the repository in your Github account and select 'Settings' at the top right of the page. 
+14: Scroll down to the Github Pages section. 
+15: Click on the 'None' button. 
+16: Select the correct branch from the menu. 
+17: Click on the URL link to visit the deployed site.
 
-Key 	Value
-DEBUG 	FALSE
-IP 	0.0.0.0
-MONGO_URI 	mongodb+srv://<username>:<password>@doggiecluster.wtitg.mongodb.net/<dbname>?retryWrites=true&w=majority
-PORT 	5000
-SECRET_KEY 	<your_secret_key>
+*** Note: For the site to load in github, there are some settings to change in settings.py**
+1: Comment out SECRET_KEY = os.environ.get('SECRET_KEY', '')
+2: Uncomment SECRET_KEY = '*5j$57vn0)!yf(0v$z9o@^$a#o&^#^6&vo*k5a37t5zq-1c(%w'
+3: Comment out DEBUG = 'DEVELOPMENT' in os.environ 
+4: Uncomment DEBUG = True
 
-9:  In the heroku dashboard, click "Deploy".
 
-10: In the "Manual Deployment" section, made sure the master branch is selected and then click "Deploy Branch".
+## Heroku
 
-11: The site is now successfully deployed.
+To push the code to a Heroku and deploy it dynamically, follow the steps below.
+
+1: Create a requirements.txt file using the terminal command pip freeze > requirements.txt.
+
+2: Create a Procfile with the terminal command echo web: python app.py > Procfile.
+
+3: Type git add and git commit the new requirements and Procfile .
+
+4: Create an App on Heroku. 
+
+5: Log in to your previous Heroku account or set up a new one. 
+
+6: Select the "New" button on the top right of the screen. 
+
+7: Then select "Create New App".
+
+8: Give your app a name and choose the regional server that best suits your location.
+
+9: Login to your Heroku account from your Github CLI using:
+
+ heroku login -i
+
+10: You should now be asked to enter your email and password for Heroku.
+
+11: Link your existing Git repository to Heroku by adding Heroku as a remote repository:
+
+heroku git:remote -a <project-name>
+
+12: From now on you can push your code from the CLI with:
+
+git push heroku master
+
+13: Set the necessary Environment Variables. Select the Settings tab, and then select the Config Vars button. Enter the KEY - VALUE pairs for your config variables here (e.g. SECRET_KEY, IP, PORT etc.)
+
+14:Finally, select the Open App button the top right of the screen to see your deployed application.
+
+*** Note: For the site to load in heroku, there are some settings to change in settings.py**
+1: Uncomment SECRET_KEY = os.environ.get('SECRET_KEY', '')
+2: Comment out SECRET_KEY = '*5j$57vn0)!yf(0v$z9o@^$a#o&^#^6&vo*k5a37t5zq-1c(%w'
+3: Uncomment DEBUG = 'DEVELOPMENT' in os.environ 
+4: Comment out DEBUG = True
 
 ## Credits
-* 
+* The vast majority of code was learnt from the Boutique Ado project on Code Institute.
 ## Media
 
 * All images are provided by www.unsplash.com and www.pexels.com 
