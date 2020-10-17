@@ -15,7 +15,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Turn this off for AWS
 # SECRET_KEY = '*5j$57vn0)!yf(0v$z9o@^$a#o&^#^6&vo*k5a37t5zq-1c(%w'
+
+# Turn this on for AWS
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
@@ -54,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'eezimotorcycles.urls'
@@ -201,3 +204,18 @@ STRIPEPUBLICKEY = os.getenv('STRIPEPUBLICKEY', '')
 STRIPESECRETKEY = os.getenv('STRIPESECRETKEY', '')
 STRIPEWEBHOOKSECRETKEY = os.getenv('STRIPEWEBHOOKSECRETKEY', '')
 DEFAULT_FROM_EMAIL = 'eezi@motorcycles.com'
+
+
+# Email Settings
+
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
