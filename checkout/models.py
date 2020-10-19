@@ -37,7 +37,6 @@ class Userorders(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-     
     def updateorder(self):
         """
         Update grand total each time a line item is added,
@@ -51,7 +50,6 @@ class Userorders(models.Model):
         self.finaltotal = self.total + self.delivery
         self.save()
 
-     
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the order number
@@ -63,7 +61,6 @@ class Userorders(models.Model):
 
     def __str__(self):
         return self.orderid
-
 
 
 class SingleOrder(models.Model):
@@ -80,7 +77,5 @@ class SingleOrder(models.Model):
         self.singleordertotal = self.product.price * self.amount
         super().save(*args, **kwargs)
 
-
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.orderid}'
-        

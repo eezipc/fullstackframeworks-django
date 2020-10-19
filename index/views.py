@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse # Add this
+from django.http import HttpResponse
 
-from .forms import ContactForm # Add this
+from .forms import ContactForm
 
 from django.core.mail import send_mail
 
@@ -13,13 +13,6 @@ from django.core.mail import send_mail
 
 def index(request):
     return render(request, 'index/index.html')
-
-
-""" Show the contact page """
-
-
-#def contact(request):
-#    return render(request, 'index/contact.html')
 
 
 """ Show the terms page """
@@ -52,8 +45,8 @@ def contact(request):
             sender_name = form.cleaned_data['name']
             sender_email = form.cleaned_data['email']
 
-            message = "{0} has sent you a new message:\n\n{1}".format(sender_name, form.cleaned_data['message'])
-            send_mail('New Enquiry', message, sender_email, ['eezipc@gmail.com'])
+            message = "{0} has sent you a new message:\n\n{1}".format(sender_name, sender_email, form.cleaned_data['message'])
+            send_mail('Message from EeziMotorcycles', message, sender_email, ['info@eezimotorcycles.com'])
             return render(request, 'index/success.html')
     else:
         form = ContactForm()

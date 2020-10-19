@@ -9,9 +9,8 @@
 <div class="modal-dialog modal-lg">
          <div class="modal-content">
           <!--Header-->
-          <div class="modal-header">
+          <div class="modal-header navbarbackground">
             <p class="heading">Welcome to Eezi Motorcycles
-              <strong></strong>
             </p>
             <button type="button" class="close" 
             data-dismiss="modal" aria-label="Close">
@@ -22,10 +21,10 @@
 
           <!--Footer-->
           <div class="modal-footer flex-center">
-          <div class="modal-footer flex-center text-center">
+          <div class="flex-center text-center">
                   <img class="img-fluid" alt="Eezi Motorcycles" width="150" height="150" src="{% static 'media/bmwf650.jpg' %}">
               </div>
-                <div class="modal-footer d-flex justify-content-center text-center">
+                <div class="flex-center d-flex justify-content-center text-center">
                 <h2>
                   Free Shipping When You Spend $50
                 </h2>
@@ -41,12 +40,7 @@
 <main>
 <!-- Beginning of Carousel-->
 <section>
-      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-      <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel"> 
   <div class="carousel-inner">
     <div class="carousel-item active">
     <a href="/products/?category=parts"> 
@@ -56,6 +50,11 @@
     <h2>Motorcycle Parts</h2>
     <p><a href="/products/?category=parts">Click Here To View All Of Our Motorcycle Parts</a></p>
   </div>
+   <div class="d-xl-none d-lg-none d-md-none">
+        <p>
+          <a href="/products/?category=parts">Click Here To View All Of Our Motorcycle Parts</a>
+        </p>
+      </div>
     </div>
     <div class="carousel-item">
     <a href="/products/?category=accessories"> 
@@ -65,6 +64,11 @@
    <h2>Motorcycle Accessories</h2>
     <p><a href="/products/?category=accessories">Click Here To View All Of Our Motorcycle Accessories</a></p>
   </div>
+   <div class="d-xl-none d-lg-none d-md-none">
+        <p>
+          <a href="/products/?category=accessories">Click Here To View All Of Our Motorcycle Accessories</a>
+        </p>
+      </div>
     </div>
     <div class="carousel-item">
     <a href="/products/?category=gear"> 
@@ -75,6 +79,11 @@
     <h2>Motorcycle Gear</h2>
     <p><a href="/products/?category=gear"> Click Here To View All Of Our Motorcycle Gear</a></p>
   </div>
+   <div class="d-xl-none d-lg-none d-md-none">
+        <p>
+          <a href="/products/?category=gear">Click Here To View All Of Our Motorcycle Gear</a>
+        </p>
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">

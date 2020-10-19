@@ -4,13 +4,13 @@ from django.dispatch import receiver
 from .models import SingleOrder
 
 
-
 @receiver(post_save, sender=SingleOrder)
 def updateonsave(sender, instance, created, **kwargs):
     """
     Update order total on lineitem update/create
     """
     instance.order.updateorder()
+
 
 @receiver(post_delete, sender=SingleOrder)
 def deleteonsave(sender, instance, **kwargs):

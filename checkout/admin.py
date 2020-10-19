@@ -13,7 +13,8 @@ class OrderAdministration(admin.ModelAdmin):
 
     inlines = (OrderSingleItemAdministration,)
 
-    readonly_fields = ('orderid', 'orderdate', 'delivery', 'total', 'finaltotal', 'originalbasket', 'stripepid',)
+    readonly_fields = ('orderid', 'orderdate', 'delivery', 'total', 'finaltotal',
+                         'originalbasket', 'stripepid',)
 
     fields = ('orderid', 'userprofile', 'firstname', 'lastname', 'emailaddress',
                 'phone', 'address1', 'address2', 'town', 'county',

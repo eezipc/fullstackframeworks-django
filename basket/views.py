@@ -19,7 +19,8 @@ def updatebasketview(request, item_id):
 
     if item_id in list(basket.keys()):
         basket[item_id] += amount
-        messages.success(request, f'Updated {product.name} amount to {basket[item_id]}')
+        messages.success(
+            request, f'Updated {product.name} amount to {basket[item_id]}')
     else:
         basket[item_id] = amount
         messages.success(request, f'Added {product.name} to your bag')

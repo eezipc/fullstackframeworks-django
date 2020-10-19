@@ -7,6 +7,7 @@ from .forms import ProductForm
 
 # Create your views here.
 
+
 def allshopitems(request):
     """ Show all items in the shop """
 
@@ -16,7 +17,6 @@ def allshopitems(request):
     sort = None
     direction = None
 
-    
     if request.GET:
 
         """ Sort by category, rating or price """
@@ -25,7 +25,7 @@ def allshopitems(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+                products = products.annotate(lower_name=lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
 
@@ -34,13 +34,12 @@ def allshopitems(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
-
-
         """ Category Search query """
         if 'category' in request.GET:
             searchcategories = request.GET['category'].split(',')
             products = products.filter(category__name__in=searchcategories)
-            searchcategories = Category.objects.filter(name__in=searchcategories)
+            searchcategories = Category.objects.filter(
+                name__in=searchcategories)
 
         """ Search bar query """
         if 'q' in request.GET:
@@ -49,7 +48,8 @@ def allshopitems(request):
                 messages.error(request, "You didn't search for any item")
                 return redirect(reverse('products'))
 
-            searchterms = Q(name__icontains=searchterm) | Q(description__icontains=searchterm)
+            searchterms = Q(name__icontains=searchterm) | Q(
+                description__icontains=searchterm)
             products = products.filter(searchterms)
 
     page_sort = f'{sort}_{direction}'
@@ -60,8 +60,6 @@ def allshopitems(request):
         'search_categories': searchcategories,
         'page_sort': page_sort,
     }
-
-
     return render(request, 'products/shopping.html', context)
 
 
@@ -71,11 +69,10 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
     context = {
-        'product' : product,
+        'product': product,
     }
-
-
     return render(request, 'products/shopping_detail.html', context)
+
 
 @login_required
 def new_product(request):
@@ -89,9 +86,10 @@ def new_product(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'You have added a new product')
-            return redirect (reverse('new_product'))
+            return redirect(reverse('new_product'))
         else:
-            messages.error(request, 'Oops, something does not look right. Check the form again')
+            messages.error(
+                request, 'Oops, something is wrong. Check the form again')
     else:
         form = ProductForm()
 
@@ -101,6 +99,7 @@ def new_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -115,13 +114,14 @@ def edit_product(request, product_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'You have edited a product')
-            return redirect (reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Oops, something does not look right. Check the form again')
+            messages.error(
+                request, 'Oops, something looks. Check the form again')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are now editing {product.name}')
-        
+
     template = 'products/edit_product.html'
     context = {
         'form': form,
@@ -130,13 +130,14 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Only administrators can access this page.')
         return redirect(reverse('index'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')

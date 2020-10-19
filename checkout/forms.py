@@ -27,7 +27,6 @@ class OrderForm(forms.ModelForm):
             'county': 'County',
             'postalcode': 'Postal Code',
             'country': 'Country',
-                        
         }
 
         self.fields['firstname'].widget.attrs['autofocus'] = True

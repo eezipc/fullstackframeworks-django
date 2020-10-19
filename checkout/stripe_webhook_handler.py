@@ -9,6 +9,7 @@ from products.models import Product
 import json
 import time
 
+
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
@@ -24,13 +25,13 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/checkoutemail/checkoutemailbody.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )        
+        )
 
     def handle_event(self, event):
         """
@@ -104,14 +105,14 @@ class StripeWH_Handler:
                 )
                 for item_id, item_data in json.loads(basket).items():
                     product = Product.objects.get(id=item_id)
-                    
+
                     order_line_item = SingleOrder(
                             order=order,
                             product=product,
                             amount=item_data,
                         )
                     order_line_item.save()
-                    
+
             except Exception as e:
                 if order:
                     order.delete()
@@ -122,8 +123,6 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
-
-
 
     def handle_payment_intent_payment_failed(self, event):
         """
