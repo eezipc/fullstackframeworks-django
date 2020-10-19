@@ -6,6 +6,10 @@ from .forms import ContactForm
 
 from django.core.mail import send_mail
 
+from django.views.generic import CreateView
+from .models import Contact
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 """ Show the index page """
@@ -38,17 +42,15 @@ def success(request):
 
 
 def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            # send email code goes here
-            sender_name = form.cleaned_data['name']
-            sender_email = form.cleaned_data['email']
+    return render(request, 'index/contact_form.html')
 
-            message = "{0} has sent you a new message:\n\n{}".format(sender_name, form.cleaned_data['email'], form.cleaned_data['message'])
-            send_mail('Message from EeziMotorcycles', message, sender_email, ['eezipc@gmail.com'])
-            return render(request, 'index/success.html')
-    else:
-        form = ContactForm()
 
-    return render(request, 'index/contact.html', {'form': form})
+class ContactCreate(CreateView):
+    model = Contact
+    form_class = ContactForm
+    success_url = reverse_lazy("thanks")
+
+    
+def thanks(request):
+    return render(request, 'index/success.html')
+

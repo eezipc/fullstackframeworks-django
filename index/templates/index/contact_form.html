@@ -14,12 +14,12 @@
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form">
                     <h1 class="display-4 py-2 text-truncate">Contact Us</h1>
                     <div class="px-2">
-                        <form method="post">
+                        <form method="POST" action="{% url 'contact' %}">
     <div class="form-group">
     {% csrf_token %}
     {{ form.as_p }}
     
-    <input type="submit" value="Submit" class="btn btn-block send-button tx-tfm"/>
+    <input type="submit" class="btn btn-block send-button tx-tfm"/>
     </div>
     </form>
                     </div>

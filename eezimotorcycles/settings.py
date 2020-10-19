@@ -19,10 +19,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
  
 # Turn this on for AWS
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'thisisasecretkey')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
-#DEBUG = True
+# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['eezimotorcycles.herokuapp.com', 
@@ -208,7 +208,7 @@ STRIPE_CURRENCY = 'usd'
 STRIPEPUBLICKEY = os.getenv('STRIPEPUBLICKEY', '')
 STRIPESECRETKEY = os.getenv('STRIPESECRETKEY', '')
 STRIPEWEBHOOKSECRETKEY = os.getenv('STRIPEWEBHOOKSECRETKEY', '')
-DEFAULT_FROM_EMAIL = 'info@motorcycles.com'
+DEFAULT_FROM_EMAIL = 'eezi@motorcycles.com'
 
 
 # Email Settings
