@@ -157,7 +157,7 @@ jQuery(document).ready(function(){
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> About </h3>
                     <ul>
-                        <li> <a href="{% url 'terms' %}"> Our Company </a> </li>
+                        <li> <a href="{% url 'bikeblog'%}"> Blog </a> </li>
                         <li> <a href="{% url 'privacy' %}"> About Us </a> </li>
                         <li> <a href="{% url 'terms' %}"> Terms of Services </a> </li>
                         <li> <a href="{% url 'privacy' %}"> Privacy Policy </a> </li>
@@ -170,6 +170,7 @@ jQuery(document).ready(function(){
                     {% if request.user.is_superuser %}
                         <li> <a href="{% url 'products' %}">Manage Products</a> </li>
                         <li> <a href="{% url 'new_product' %}">Add A Product</a> </li>
+                        <li> <a href="{% url 'add_blog' %}">Create A Blog Post</a> </li>
                     {% endif %}
                         <li> <a href="{% url 'profile' %}">My Profile</a> </li>
                         <li> <a href="{% url 'account_logout' %}">Logout</a> </li>

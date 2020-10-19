@@ -4,14 +4,11 @@ from django.http import HttpResponse
 
 from .forms import ContactForm
 
-from django.core.mail import send_mail
-
 from django.views.generic import CreateView
 from .models import Contact
 from django.urls import reverse_lazy
 
 
-# Create your views here.
 """ Show the index page """
 
 
@@ -40,9 +37,14 @@ def success(request):
     return render(request, 'index/success.html')
 
 
+""" Show the contact page """
+
 
 def contact(request):
     return render(request, 'index/contact_form.html')
+
+
+""" Show the contact page information """
 
 
 class ContactCreate(CreateView):
@@ -50,7 +52,8 @@ class ContactCreate(CreateView):
     form_class = ContactForm
     success_url = reverse_lazy("thanks")
 
-    
+    """ Redirect thangs to success.html """
+
+
 def thanks(request):
     return render(request, 'index/success.html')
-

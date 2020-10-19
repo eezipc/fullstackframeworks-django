@@ -43,6 +43,11 @@ The site has multiple pages as outlined below:
 * update_products.html - This is where a manager can update existing products in the store.
 * userprofile.html - This is where a user can view, edit or delete their profile.
 * allauth - This is where a user can register, login and reset their password.
+* blog.html - This is where a user can view blog posts.
+* blog_detail.html - This is where a user can view an individual blog.
+* add_blog.html - This is where a superuser can add a new blog post.
+* edit_blog.html - This is where a superuser can edit blog posts.
+* delete_ blog.html - This is where a superuser can delete blog posts.
 
 
 
@@ -65,6 +70,7 @@ The site has multiple pages as outlined below:
 * As a customer, I want to receive an email when a profile is created.
 * As a customer, I want to receive an email when an order is created.
 * As a customer, I want to clearly see an outcome whether the order is successful or not.
+* As a customer, I want to be able to view blog posts.
 
 * As a manager, I want to be able to create an account.
 * As a manager, I want to be able easily log in or out.
@@ -73,6 +79,8 @@ The site has multiple pages as outlined below:
 * As a manager, I want to be able to view all customers order history.
 * As a manager, I want to be able to edit or delete an existing product.
 * As a manager, I want to be able to add a new product.
+* As a manager, I want to be able to create a new blog post.
+* As a manager, I want to be able to edit or delete an existing blog post.
 
 
 
@@ -146,7 +154,28 @@ The design is simple with clear layouts providing easy access to order a product
 
 * The form has the address and phone number on the side.
 * The form contains three inputs; name, email and message.
-* The form uses django forms and sends emails to a gmail account.
+* The form uses django and saves all messages to a db which is viewable in the admin portal.
+
+## Bikeblog (blog.html)
+
+* This is a simple blog which is managed by the admin portal.
+* Anyone can view all blogs.
+
+## BlogDetail (blog_detail.html)
+
+* This is a anyone can view a single blog post.
+
+## AddBlog (add_blog.html)
+
+* This is where a superuser can create a new blog post.
+
+## Editblog (edit_blog.html)
+
+* This is where a superuser can edit an existing blog post.
+
+## Deleteblog (delete_blog.html)
+
+* This is where a superuser can delete an existing blog post.
 
 ## Success (success.html)
 
@@ -175,6 +204,7 @@ The design is simple with clear layouts providing easy access to order a product
 
 * I would have liked to add an Amazon or Ebay api to the site.
 * I would also have liked to add multiple images for each product.
+* I would like to link existing user accounts to the blog app so users can create their own blogs.
 
 ## Tools
 
@@ -205,7 +235,7 @@ The design is simple with clear layouts providing easy access to order a product
 * Site was tested with https://validator.w3.org
 * Site was tested by https://jigsaw.w3.org/css-validator/
 * Python code was checked by http://pep8online.com/
-* There are a few errors but the code seems fine. 
+* There are a few errors but the code seems fine apart from some lines are too long and doctype is missing.
 
 ## Deployment
 
@@ -238,11 +268,7 @@ This application can run on Gitpod or Heroku
 16: Select the correct branch from the menu. 
 17: Click on the URL link to visit the deployed site.
 
-*** Note: For the site to load in github, there are some settings to change in settings.py**
-1: Comment out SECRET_KEY = os.environ.get('SECRET_KEY', '')
-2: Uncomment SECRET_KEY = '*5j$57vn0)!yf(0v$z9o@^$a#o&^#^6&vo*k5a37t5zq-1c(%w'
-3: Comment out DEBUG = 'DEVELOPMENT' in os.environ 
-4: Uncomment DEBUG = True
+*** Note: For the site to load in github, you may need to input a secret key in settings.py**
 
 
 ## Heroku
@@ -283,18 +309,18 @@ git push heroku master
 
 14:Finally, select the Open App button the top right of the screen to see your deployed application.
 
-*** Note: For the site to load in heroku, there are some settings to change in settings.py**
-1: Uncomment SECRET_KEY = os.environ.get('SECRET_KEY', '')
-2: Comment out SECRET_KEY = '*5j$57vn0)!yf(0v$z9o@^$a#o&^#^6&vo*k5a37t5zq-1c(%w'
-3: Uncomment DEBUG = 'DEVELOPMENT' in os.environ 
-4: Comment out DEBUG = True
 
 ## Credits
 * The vast majority of code was learnt from the Boutique Ado project on Code Institute.
+* I also got alot of help from Codemy.com: https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw
+* I learned alot from www.udemy.com
+* I also picked up alot of tips from Linkedin Learning.
+
 ## Media
 
 * All images are provided by www.unsplash.com and www.pexels.com 
 * Alot of the product images and text was taken from https://www.xlmoto.ie
+* Blog posts were taken from various motorcycle blogs such as motorcycle.com and cycleworld.com
 
 ## Code
 
@@ -302,6 +328,6 @@ git push heroku master
 * The Code Institute lessons on Django were excellent. Although they had set a low standard.
 * All credit for the videos must go to czk8780: https://github.com/ckz8780
 * Got alot of help from stackexchange https://stackexchange.com/
-* Some of the code for the back to top button came from here 
+* Some of the code for the back to top button came from here https://www.codeply.com/
 * Alot of inspiration from Bootstrap: https://www.getbootstrap.com
 * Alot of help from W3Schools: https://www.W3Schools.com

@@ -17,15 +17,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # Turn this off for AWS
 
- 
+
 # Turn this on for AWS
-SECRET_KEY = os.environ.get('SECRET_KEY', 'thisisasecretkey')
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = True
 
 
-ALLOWED_HOSTS = ['eezimotorcycles.herokuapp.com', 
+ALLOWED_HOSTS = ['eezimotorcycles.herokuapp.com',
                     'localhost',
                     '127.0.0.1',
                     '8000-eb0d3daa-c9c8-4d3a-b83e-68f5bb862722.ws-eu01.gitpod.io/']
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'userprofiles',
     'storages',
+    'bikeblog',
 
 ]
 
@@ -62,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'eezimotorcycles.urls'

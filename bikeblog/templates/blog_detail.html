@@ -1,0 +1,117 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block page_header %} 
+{% endblock %} 
+{% block index %}
+<!-- View Individual Blog Entry-->
+<main>
+  <div class="container justify-content-center">
+    <section id="cover">
+      <div id="cover-caption">
+        <div class="container">
+          <div class="row">
+            <div class=" col-sm-10 mx-auto text-center">
+              <h1 class="py-2">{{post.title}}</h1>
+              <div class="px-2">
+                <p class="card-text text-muted h6">{{ post.subject }}</p>
+                <p class="card-text">{{post.body }}</p>
+                <p class="card-text">
+                  {% if request.user.is_superuser %}
+                  <small class="ml-3">
+                    <a href="{% url 'edit_blog' post.pk %}">Edit Post</a> |
+                    <a
+                      class="text-danger"
+                      href="{% url 'delete_blog' post.pk %}"
+                      >Delete Post</a
+                    >
+                  </small>
+                  {% endif %}
+                </p>
+                <a
+                  href="{% url 'bikeblog' %}"
+                  class="btn btn-block send-button tx-tfm"
+                >
+                  &laquo; Back</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Continue Shopping -->
+
+    <div class="container marketing">
+      <div class="row">
+        <div class="col-lg-4">
+          <img
+            class="rounded-circle"
+            src="{% static 'media/bikeimages/frontbike.jpg' %}"
+            alt="Motorcyle Accessories"
+            width="140"
+            height="140"
+          />
+          <h2>Motorcyle Accessories</h2>
+          <p>Check Out Our Extensive Range of Motorcycle Accessories</p>
+          <p>
+            <a
+              class="btn btn-primary"
+              href="/products/?category=accessories"
+              role="button"
+              >View details &raquo;</a
+            >
+          </p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img
+            class="rounded-circle"
+            src="{% static 'media/bikeimages/helmet.jpg' %}"
+            alt="Motorcyle Gear"
+            width="140"
+            height="140"
+          />
+          <h2>Motorcycle Gear</h2>
+          <p>Check Out Our Extensive Range of Motorcycle Gear</p>
+          <p>
+            <a
+              class="btn btn-primary"
+              href="/products/?category=gear"
+              role="button"
+              >View details &raquo;</a
+            >
+          </p>
+        </div>
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img
+            class="rounded-circle"
+            src="{% static 'media/bikeimages/lakebike.jpg' %}"
+            alt="Motorcyle Parts"
+            width="140"
+            height="140"
+          />
+          <h2>Motorycycle Parts</h2>
+          <p>Check Out Our Extensive Range of Motorcycle Parts</p>
+          <p>
+            <a
+              class="btn btn-primary"
+              href="/products/?category=parts"
+              role="button"
+              >View details &raquo;</a
+            >
+          </p>
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+      <!-- /.row -->
+
+      {% block subscribe %} {% endblock %}
+    </div>
+    <!-- /.container -->
+  </div>
+</main>
+{% endblock %} 
+{% block content %} 
+{% endblock %}
