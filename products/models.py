@@ -1,6 +1,8 @@
 from django.db import models
 
 # Categories Database
+
+
 class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
@@ -14,6 +16,8 @@ class Category(models.Model):
         return self.friendly_name
 
 # Product Database
+
+
 class Product(models.Model):
     category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)

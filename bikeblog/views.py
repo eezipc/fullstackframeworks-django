@@ -1,8 +1,8 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import BlogForm
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 # Bike Blog View
 
@@ -21,6 +21,7 @@ class BikeDetailView(DetailView):
 # Add Blog View
 
 
+@login_required
 class AddBikeBlogView(CreateView):
     model = Post
     form_class = BlogForm
@@ -29,6 +30,7 @@ class AddBikeBlogView(CreateView):
 # Update Blog View
 
 
+@login_required
 class UpdateBlogView(UpdateView):
     model = Post
     form_class = BlogForm
@@ -37,6 +39,7 @@ class UpdateBlogView(UpdateView):
 # Delete Blog View
 
 
+@login_required
 class DeleteBlogView(DeleteView):
     model = Post
     template_name = 'delete_blog.html'
