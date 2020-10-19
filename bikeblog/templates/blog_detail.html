@@ -14,7 +14,7 @@
               <h1 class="py-2">{{post.title}}</h1>
               <div class="px-2">
                 <p class="card-text text-muted h6">{{ post.subject }}</p>
-                <p class="card-text">{{post.body }}</p>
+                <p class="card-text">{{post.body|linebreaksbr }}</p>
                 <p class="card-text">
                   {% if request.user.is_superuser %}
                   <small class="ml-3">
