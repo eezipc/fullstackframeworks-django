@@ -208,7 +208,7 @@ STRIPE_CURRENCY = 'usd'
 STRIPEPUBLICKEY = os.getenv('STRIPEPUBLICKEY', '')
 STRIPESECRETKEY = os.getenv('STRIPESECRETKEY', '')
 STRIPEWEBHOOKSECRETKEY = os.getenv('STRIPEWEBHOOKSECRETKEY', '')
-DEFAULT_FROM_EMAIL = 'eezi@motorcycles.com'
+DEFAULT_FROM_EMAIL = 'info@motorcycles.com'
 
 
 # Email Settings

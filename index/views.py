@@ -45,8 +45,8 @@ def contact(request):
             sender_name = form.cleaned_data['name']
             sender_email = form.cleaned_data['email']
 
-            message = "{0} has sent you a new message:\n\n{1}".format(sender_name, sender_email, form.cleaned_data['message'])
-            send_mail('Message from EeziMotorcycles', message, sender_email, ['info@eezimotorcycles.com'])
+            message = "{0} {1} has sent you a new message:\n\n".format(sender_name, form.cleaned_data['message']) + (sender_name, form.cleaned_data['email'])
+            send_mail('Message from EeziMotorcycles', message, sender_email, [''])
             return render(request, 'index/success.html')
     else:
         form = ContactForm()
